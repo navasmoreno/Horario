@@ -1,23 +1,37 @@
-
 <main class="container-fluid px-0">
-    <table class="table table-bordered table-responsive table-striped">
-    <tr>
-        <th scope="col" class="py-2 text-center text-bg-primary text-uppercase">#</th>
-        <th scope="col" class="py-2 text-center text-bg-primary text-uppercase">LUNES</th>
-        <th scope="col" class="py-2 text-center text-bg-primary text-uppercase">MARTES</th>
-        <th scope="col" class="py-2 text-center text-bg-primary text-uppercase">MIÉRCOLES</th>
-        <th scope="col" class="py-2 text-center text-bg-primary text-uppercase">JUEVES</th>
-        <th scope="col" class="py-2 text-center text-bg-primary text-uppercase">VIERNES</th>
-        <th *ngIf="horario[0].values.length>5" scope="col" class="py-2 text-center text-bg-primary text-uppercase">SABADO</th>
-        <th *ngIf="horario[0].values.length>6" scope="col" class="py-2 text-center text-bg-primary text-uppercase">DOMINGO</th>
-    </tr>
-    <tr *ngFor="let row of horario">
-        <td class="py-3 text-center text-bg-primary">
-            {{row.time.substring(0,2)+":"+row.time.substring(2,4)}}
-        </td>
-        <td *ngFor="let value of row.values" class="px-2 text-uppercase" [class.bg-grey]="value=='recreo'">
-            {{value}}
-        </td>
-    </tr>
-</table>
+    <div class="table-responsive">
+        <table *ngIf="horario && horario.length>0" class="table table-bordered table-striped text-uppercase">
+            <tr>
+                <th scope="col" class="py-2 text-center text-bg-primary ">#</th>
+                <th scope="col" class="py-2 text-center text-bg-primary">LUNES</th>
+                <th scope="col" class="py-2 text-center text-bg-primary">MARTES</th>
+                <th scope="col" class="py-2 text-center text-bg-primary">MIÉRCOLES</th>
+                <th scope="col" class="py-2 text-center text-bg-primary">JUEVES</th>
+                <th scope="col" class="py-2 text-center text-bg-primary">VIERNES</th>
+                <th *ngIf="horario[0].values.length>5" scope="col" class="py-2 text-center text-bg-primary">
+                    SABADO</th>
+                <th *ngIf="horario[0].values.length>6" scope="col" class="py-2 text-center text-bg-primary">
+                    DOMINGO</th>
+            </tr>
+            <tr *ngFor="let row of horario" class="">
+                <td class="py-3 text-center text-bg-primary">
+                    {{row.time.substring(0,2)+":"+row.time.substring(2,4)}}
+                </td>
+                <td *ngFor="let value of row.values" class="px-2 datos" [ngClass]="{'bg-grey text-white-50':value=='recreo',
+            'color-1':value.toLowerCase()=='geografía' || value.toLowerCase()=='economía',
+            'color-2':value.toLowerCase()=='tics' || value.toLowerCase()=='inglés',
+            'color-3':value.toLowerCase()=='biología' || value.toLowerCase()=='matemáticas',
+            'color-4':value.toLowerCase()=='lengua' || value.toLowerCase()=='frances',
+            'color-5':value.toLowerCase()=='educación física' || value.toLowerCase()=='psicología',
+            'color-6':value.toLowerCase()=='matemáticas' || value.toLowerCase()=='história del arte',
+            'color-7':value.toLowerCase()=='filosofía' || value.toLowerCase()=='lengua',
+            'color-8':value.toLowerCase()=='valores' || value.toLowerCase()=='história del españa',
+            'color-9':value.toLowerCase()=='frances',
+            'color-10':value.toLowerCase()=='inglés',
+            'color-11':value.toLowerCase()=='física y química'}">
+                    {{value}}
+                </td>
+            </tr>
+        </table>
+    </div>
 </main>

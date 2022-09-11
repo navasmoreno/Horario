@@ -17,6 +17,12 @@
  
  body {
    min-height: 100vh;
+   min-width: 100vw;
+   display: inline-block;
+ }
+ app-root {
+  min-height: 100vh;
+  min-width: 100vw;
  }
  main.init {
    height: calc(100vh - 60px);

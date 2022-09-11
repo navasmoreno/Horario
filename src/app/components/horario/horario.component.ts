@@ -11,7 +11,6 @@ export class HorarioComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    // console.log(this.horario);
   }
 
 }
