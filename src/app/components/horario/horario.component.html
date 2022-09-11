@@ -1,0 +1,23 @@
+
+<main class="container-fluid px-0">
+    <table class="table table-bordered table-responsive table-striped">
+    <tr>
+        <th scope="col" class="py-2 text-center text-bg-primary text-uppercase">#</th>
+        <th scope="col" class="py-2 text-center text-bg-primary text-uppercase">LUNES</th>
+        <th scope="col" class="py-2 text-center text-bg-primary text-uppercase">MARTES</th>
+        <th scope="col" class="py-2 text-center text-bg-primary text-uppercase">MIÉRCOLES</th>
+        <th scope="col" class="py-2 text-center text-bg-primary text-uppercase">JUEVES</th>
+        <th scope="col" class="py-2 text-center text-bg-primary text-uppercase">VIERNES</th>
+        <th *ngIf="horario[0].values.length>5" scope="col" class="py-2 text-center text-bg-primary text-uppercase">SABADO</th>
+        <th *ngIf="horario[0].values.length>6" scope="col" class="py-2 text-center text-bg-primary text-uppercase">DOMINGO</th>
+    </tr>
+    <tr *ngFor="let row of horario">
+        <td class="py-3 text-center text-bg-primary">
+            {{row.time.substring(0,2)+":"+row.time.substring(2,4)}}
+        </td>
+        <td *ngFor="let value of row.values" class="px-2 text-uppercase" [class.bg-grey]="value=='recreo'">
+            {{value}}
+        </td>
+    </tr>
+</table>
+</main>

@@ -1,0 +1,8 @@
+tr {
+    th:first-child {
+        width: 100px;
+    }
+    th,td:first-child {
+        font-size: 1.3rem;
+    }
+}
