@@ -1,8 +1,18 @@
 <header class="container-fluid bg-light sticky-top">
     <div class="align-items-center col-auto col-md col-sm-8 d-flex p-0">
         <nav class="navbar navbar-expand navbar-light ">
-            <a class="navbar-brand" routerLink="/horarios/eb5094069f5e287ad7cfce5fc944f1c6565da2481af83fd5c24568e2481d09e3" [class.selected]="selected === 'eb5094069f5e287ad7cfce5fc944f1c6565da2481af83fd5c24568e2481d09e3'">Isabel</a>
-            <a class="navbar-brand" routerLink="/horarios/c9fd92c735c7609969a0ab48b6dc2fda85a06e135196571c06708222baf5a2e7" [class.selected]="selected === 'c9fd92c735c7609969a0ab48b6dc2fda85a06e135196571c06708222baf5a2e7'">Rodrigo</a>
+            <div class="navbar-brand" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+                <button type="button" class="btn dropdown-toggle nav-link" [class.selected]=" selected == 'horarios'" ngbDropdownToggle>Horarios</button>
+                <div class="dropdown-menu" ngbDropdownMenu>
+                    <a class="navbar-brand" ngbDropdownItem
+                        routerLink="/horarios/eb5094069f5e287ad7cfce5fc944f1c6565da2481af83fd5c24568e2481d09e3"
+                        [class.selected]="selected === 'eb5094069f5e287ad7cfce5fc944f1c6565da2481af83fd5c24568e2481d09e3'">Isabel</a>
+                    <a class="navbar-brand" ngbDropdownItem
+                        routerLink="/horarios/c9fd92c735c7609969a0ab48b6dc2fda85a06e135196571c06708222baf5a2e7"
+                        [class.selected]="selected === 'c9fd92c735c7609969a0ab48b6dc2fda85a06e135196571c06708222baf5a2e7'">Rodrigo</a>
+                </div>
+            </div>
+            <a class="navbar-brand" routerLink="/dietas" [class.selected]="selected === 'dieta'">Dieta</a>
         </nav>
     </div>
 </header>

@@ -1,0 +1,111 @@
+<main *ngIf="_dieta != undefined" class="container-fluid px-0">
+    <div class="row">
+        <div class="col-12 col-md-4">
+            <div class="h3">
+                {{_dieta.nombre}}
+            </div>
+        </div>
+        <div class="col-12 col-md-8">
+            <div class="float-end">
+                <p class="d-inline-block pe-5">Semana:</p>
+                <div class="d-inline-block">
+                    <nav aria-label="Page navigation semanas">
+                        <ul class="pagination">
+                            <li class="page-item" [class.disabled]="current==0">
+                                <div class="page-link cursor-default" (click)="semanaTo(current-1)">&lt;</div>
+                            </li>
+                            <li *ngFor="let semana of _dieta.semanas; let i = index" class="page-item" [class.d-none]="i<show.min || i > show.max">
+                                <div class="page-link cursor-default" [class.active]="i==current"
+                                    (click)="semanaTo(i)">{{i+1}}</div>
+                            </li>
+                            <li class="page-item" [class.disabled]="current==_dieta.semanas.length-1">
+                                <div class="page-link cursor-default" (click)="semanaTo(current+1)">&gt;</div>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div *ngIf="currentSemana != null" class="row">
+        <div class="col-12">
+            <ngb-accordion #acc="ngbAccordion" activeIds="comidas" [closeOthers]="true">
+                <ngb-panel id="aldia" title="Al dia">
+                    <ng-template ngbPanelContent>
+                        <ul class="list-group">
+                            <li *ngFor="let item of currentSemana.aldia" class="list-group-item">
+                                {{item}}
+                            </li>
+                        </ul>
+                    </ng-template>
+                </ngb-panel>
+
+                <ngb-panel id="libres" title="Alimentos libres">
+                    <ng-template ngbPanelContent>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                {{currentSemana.libres}}
+                            </li>
+                        </ul>
+                    </ng-template>
+                </ngb-panel>
+
+                <ngb-panel titl id="nolibres" title="Alimentos no libres">
+                    <ng-template ngbPanelContent>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                {{currentSemana.nolibres}}
+                            </li>
+                        </ul>
+                    </ng-template>
+                </ngb-panel>
+
+                <ngb-panel id="comidas" title="Comidas">
+                    <ng-template ngbPanelContent>
+                        <ul class="list-group">
+                            <li *ngIf="currentSemana.comidasNotas && currentSemana.comidasNotas.length>0" class="list-group-item d-flex justify-content-start align-items-center disabled">
+                                <p class="m-0">{{currentSemana.comidasNotas}}</p>
+                            </li>
+                            <li *ngFor="let item of currentSemana.comidas"
+                                class="list-group-item d-flex justify-content-start align-items-center">
+                                <p class="m-0 pe-3 pe-md-5 text-bold">
+                                    {{item.repeticiones}}
+                                </p>
+                                <div>
+                                    <div *ngFor="let comida of item.platos">
+                                        {{comida}}
+                                    </div>
+                                </div>
+
+                            </li>
+                        </ul>
+                    </ng-template>
+                </ngb-panel>
+
+                <ngb-panel id="cenas" title="Cenas">
+                    <ng-template ngbPanelContent>
+                        <ul class="list-group">
+                            <li *ngIf="currentSemana.cenasNotas" class="list-group-item d-flex justify-content-start align-items-center disabled">
+                                <p class="m-0">{{currentSemana.cenasNotas}}</p>
+                            </li>
+                            <li *ngFor="let item of currentSemana.cenas"
+                                class="list-group-item d-flex justify-content-start align-items-center">
+                                <p class="m-0 pe-3 pe-md-5 text-bold">
+                                    {{item.repeticiones}}
+                                </p>
+                                <div>
+                                    <div *ngFor="let cena of item.platos">
+                                        {{cena}}
+                                    </div>
+                                </div>
+
+                            </li>
+                        </ul>
+                    </ng-template>
+                </ngb-panel>
+
+            </ngb-accordion>
+        </div>
+    </div>
+</main>

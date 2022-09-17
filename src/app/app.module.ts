@@ -10,6 +10,8 @@ import { HorariosComponent } from './views/horarios/horarios.component';
 import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DietaComponent } from './components/dieta/dieta.component';
+import { DietasComponent } from './views/dietas/dietas.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     HorariosComponent,
     PageNotFoundComponent,
-    HeaderComponent
+    HeaderComponent,
+    DietaComponent,
+    DietasComponent
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-horarios',
@@ -11,18 +12,8 @@ import { HttpClient } from '@angular/common/http';
 export class HorariosComponent implements OnInit {
   name: any;
   horario: any;
-  selected: string = "";
-  default: any =
-    [
-      { time: "0800", values: ["", "", "", "", "",] },
-      { time: "0900", values: ["", "", "", "", "",] },
-      { time: "1000", values: ["", "", "", "", "",] },
-      { time: "1100", values: ["", "", "", "", "",] },
-      { time: "1200", values: ["", "", "", "", "",] },
-      { time: "1300", values: ["", "", "", "", "",] },
-      { time: "1400", values: ["", "", "", "", "",] },
-      { time: "1500", values: ["", "", "", "", "",] },
-    ];
+  selected: string = "horarios";
+
 
   constructor(
     private route: ActivatedRoute, private router: Router, private http: HttpClient
@@ -37,23 +28,23 @@ export class HorariosComponent implements OnInit {
     var id = this.route.snapshot.paramMap.get('id');
     switch (id) {
       case "eb5094069f5e287ad7cfce5fc944f1c6565da2481af83fd5c24568e2481d09e3": //Isabel
-        this.getJSON("assets/isabel.json").subscribe(data => {
+        this.getJSON(environment.horariosRoute + "/isabel.json").subscribe(data => {
           this.horario = data;
         });
-        this.selected = id;
         break;
       case "c9fd92c735c7609969a0ab48b6dc2fda85a06e135196571c06708222baf5a2e7": //Rodrigo
-        this.getJSON("assets/rodrigo.json").subscribe(data => {
+        this.getJSON(environment.horariosRoute + "/rodrigo.json").subscribe(data => {
           this.horario = data;
         });
-        this.selected = id;
         break;
       default:
-        this.horario = this.default;
-        this.selected = "default";
+          this.getJSON(environment.horariosRoute + "/default.json").subscribe(data => {
+            this.horario = data;
+          });
+        break;
 
     }
-    
+
   }
   public getJSON(_jsonURL: string): Observable<any> {
     return this.http.get(_jsonURL);

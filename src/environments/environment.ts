@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  dietasRoute: "assets/dietas",
+  horariosRoute: "assets/horarios",
+  dietaPaginacionlocalstorage: "20c15e9960a8c7a7e98969c4fc786d83",
 };
 
 /*
