@@ -13,6 +13,7 @@ export class DietaComponent implements OnInit {
     if (val) {
       console.log(val);
       this._dieta = val;
+      if(val.hasOwnProperty("nombre"))document.title = val.nombre;
       // Para las dietas por semanas
       if (val.hasOwnProperty('semanas')) {
         this.array=val.semanas;

@@ -23,13 +23,11 @@ export class HorariosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      this.name = params['name'];
-    });
     var id = this.route.snapshot.paramMap.get('id');
     this.getJSON(`${environment.horariosRoute}/${id}.json`).subscribe(data => {
-      this.horario = data;
-      this.titulo = id;
+      this.horario = data.horario;
+      this.titulo = data.nombre;
+      document.title = `Horario de ${data.nombre}`;
     });
   }
   public getJSON(_jsonURL: string): Observable<any> {

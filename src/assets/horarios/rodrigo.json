@@ -1,92 +1,53 @@
-[
+{
+  "nombre": "Rodrigo",
+  "horario": [
     {
-        "time": "0830",
-        "values": [
-            "frances",
-            "física y química",
-            "frances",
-            "inglés",
-            "inglés"
-        ]
+      "time": "0830",
+      "values": ["frances", "física y química", "frances", "inglés", "inglés"]
     },
     {
-        "time": "0925",
-        "values": [
-            "física y química",
-            "geografía",
-            "física y química",
-            "tics",
-            "tics"
-        ]
+      "time": "0925",
+      "values": [
+        "física y química",
+        "geografía",
+        "física y química",
+        "tics",
+        "tics"
+      ]
     },
     {
-        "time": "1020",
-        "values": [
-            "recreo",
-            "recreo",
-            "recreo",
-            "recreo",
-            "recreo"
-        ]
+      "time": "1020",
+      "values": ["recreo", "recreo", "recreo", "recreo", "recreo"]
     },
     {
-        "time": "1035",
-        "values": [
-            "biología",
-            "lengua",
-            "Educación física",
-            "geografía",
-            "educación física"
-        ]
+      "time": "1035",
+      "values": [
+        "biología",
+        "lengua",
+        "Educación física",
+        "geografía",
+        "educación física"
+      ]
     },
     {
-        "time": "1130",
-        "values": [
-            "inglés",
-            "biología",
-            "geografía",
-            "matemáticas",
-            "lengua"
-        ]
+      "time": "1130",
+      "values": ["inglés", "biología", "geografía", "matemáticas", "lengua"]
     },
     {
-        "time": "1225",
-        "values": [
-            "recreo",
-            "recreo",
-            "recreo",
-            "recreo",
-            "recreo"
-        ]
+      "time": "1225",
+      "values": ["recreo", "recreo", "recreo", "recreo", "recreo"]
     },
     {
-        "time": "1240",
-        "values": [
-            "matemáticas",
-            "inglés",
-            "matemáticas",
-            "lengua",
-            "biología"
-        ]
+      "time": "1240",
+      "values": ["matemáticas", "inglés", "matemáticas", "lengua", "biología"]
     },
     {
-        "time": "1335",
-        "values": [
-            "lengua",
-            "matemáticas",
-            "filosofía",
-            "valores",
-            "filosofía"
-        ]
+      "time": "1335",
+      "values": ["lengua", "matemáticas", "filosofía", "valores", "filosofía"]
     },
     {
-        "time": "1600",
-        "values": [
-            "academia",
-            "",
-            "academia",
-            "",
-            "academia"
-        ]
+      "time": "1600",
+      "values": ["academia", "", "academia", "", "academia"]
     }
-]
+  ]
+}
