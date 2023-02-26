@@ -9,7 +9,7 @@ services:
     container_name: horario
     # Para la versión de desarrollo se mapea la carpeta con una local
     ports: 
-      - 1001:4200
+      - 3000:4200
     volumes:
       - .:/usr/src/app
     networks:

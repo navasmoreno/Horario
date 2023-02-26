@@ -8,7 +8,7 @@ table {
 
         th,
         td:first-child {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
         }
 
         td {
@@ -71,5 +71,16 @@ table {
 
     td.datos {
         font-size: .5rem;
+    }
+}
+@media (max-width: 1200px) {
+
+    th,
+    td:first-child {
+        font-size: 1rem !important;
+    }
+
+    td.datos {
+        font-size: 0.8rem;
     }
 }
