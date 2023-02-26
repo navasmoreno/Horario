@@ -7,19 +7,27 @@
         </div>
         <div class="col-12 col-md-8">
             <div class="float-end">
-                <p class="d-inline-block pe-5">Semana:</p>
+                <p *ngIf="_dieta.hasOwnProperty('semanas')" class="d-inline-block pe-5">Semana:</p>
+                <p *ngIf="_dieta.hasOwnProperty('dias')" class="d-inline-block pe-5">Dia:</p>
                 <div class="d-inline-block">
                     <nav aria-label="Page navigation semanas">
                         <ul class="pagination">
-                            <li class="page-item" [class.disabled]="current==0">
-                                <div class="page-link cursor-default" (click)="semanaTo(current-1)">&lt;</div>
+                            <li class="page-item" [class.disabled]="currentSelected==0">
+                                <div class="page-link cursor-default text-center" (click)="arrayTo(0)">&lt;&lt;</div>
                             </li>
-                            <li *ngFor="let semana of _dieta.semanas; let i = index" class="page-item" [class.d-none]="i<show.min || i > show.max">
-                                <div class="page-link cursor-default" [class.active]="i==current"
-                                    (click)="semanaTo(i)">{{i+1}}</div>
+                            <li class="page-item" [class.disabled]="currentSelected==0">
+                                <div class="page-link cursor-default text-center" (click)="arrayTo(currentSelected-1)">&lt;</div>
                             </li>
-                            <li class="page-item" [class.disabled]="current==_dieta.semanas.length-1">
-                                <div class="page-link cursor-default" (click)="semanaTo(current+1)">&gt;</div>
+                            <li *ngFor="let item of array; let i = index" class="page-item"
+                                [class.d-none]="i<show.min || i > show.max">
+                                <div class="page-link cursor-default text-center" [class.active]="i==currentSelected"
+                                    (click)="arrayTo(i)">{{i+1}}</div>
+                            </li>
+                            <li class="page-item" [class.disabled]="currentSelected==array.length-1">
+                                <div class="page-link cursor-default text-center" (click)="arrayTo(currentSelected+1)">&gt;</div>
+                            </li>
+                            <li class="page-item" [class.disabled]="currentSelected==array.length-1">
+                                <div class="page-link cursor-default text-center" (click)="arrayTo(array.length-1)">&gt;&gt;</div>
                             </li>
                         </ul>
                     </nav>
@@ -28,13 +36,13 @@
             </div>
         </div>
     </div>
-    <div *ngIf="currentSemana != null" class="row">
-        <div class="col-12">
+    <div *ngIf="currentItem != null" class="row">
+        <div *ngIf="_dieta.hasOwnProperty('semanas')" class="col-12">
             <ngb-accordion #acc="ngbAccordion" activeIds="comidas" [closeOthers]="true">
-                <ngb-panel id="aldia" title="Al dia">
+                <ngb-panel id="aldia" title="Para comer durante todo el día">
                     <ng-template ngbPanelContent>
                         <ul class="list-group">
-                            <li *ngFor="let item of currentSemana.aldia" class="list-group-item">
+                            <li *ngFor="let item of currentItem.aldia" class="list-group-item">
                                 {{item}}
                             </li>
                         </ul>
@@ -45,7 +53,7 @@
                     <ng-template ngbPanelContent>
                         <ul class="list-group">
                             <li class="list-group-item">
-                                {{currentSemana.libres}}
+                                {{currentItem.libres}}
                             </li>
                         </ul>
                     </ng-template>
@@ -55,7 +63,7 @@
                     <ng-template ngbPanelContent>
                         <ul class="list-group">
                             <li class="list-group-item">
-                                {{currentSemana.nolibres}}
+                                {{currentItem.nolibres}}
                             </li>
                         </ul>
                     </ng-template>
@@ -64,10 +72,11 @@
                 <ngb-panel id="comidas" title="Comidas">
                     <ng-template ngbPanelContent>
                         <ul class="list-group">
-                            <li *ngIf="currentSemana.comidasNotas && currentSemana.comidasNotas.length>0" class="list-group-item d-flex justify-content-start align-items-center disabled">
-                                <p class="m-0">{{currentSemana.comidasNotas}}</p>
+                            <li *ngIf="currentItem.comidasNotas && currentItem.comidasNotas.length>0"
+                                class="list-group-item d-flex justify-content-start align-items-center disabled">
+                                <p class="m-0">{{currentItem.comidasNotas}}</p>
                             </li>
-                            <li *ngFor="let item of currentSemana.comidas"
+                            <li *ngFor="let item of currentItem.comidas"
                                 class="list-group-item d-flex justify-content-start align-items-center">
                                 <p class="m-0 pe-3 pe-md-5 text-bold">
                                     {{item.repeticiones}}
@@ -86,10 +95,11 @@
                 <ngb-panel id="cenas" title="Cenas">
                     <ng-template ngbPanelContent>
                         <ul class="list-group">
-                            <li *ngIf="currentSemana.cenasNotas" class="list-group-item d-flex justify-content-start align-items-center disabled">
-                                <p class="m-0">{{currentSemana.cenasNotas}}</p>
+                            <li *ngIf="currentItem.cenasNotas"
+                                class="list-group-item d-flex justify-content-start align-items-center disabled">
+                                <p class="m-0">{{currentItem.cenasNotas}}</p>
                             </li>
-                            <li *ngFor="let item of currentSemana.cenas"
+                            <li *ngFor="let item of currentItem.cenas"
                                 class="list-group-item d-flex justify-content-start align-items-center">
                                 <p class="m-0 pe-3 pe-md-5 text-bold">
                                     {{item.repeticiones}}
@@ -105,6 +115,56 @@
                     </ng-template>
                 </ngb-panel>
 
+            </ngb-accordion>
+        </div>
+        <div *ngIf="_dieta.hasOwnProperty('dias')" class="col-12">
+    
+            <ngb-accordion #acc="ngbAccordion" activeIds="comida,cena" [closeOthers]="false">
+                <ngb-panel id="notas" title="Notas">
+                    <ng-template ngbPanelContent>
+                        <ul class="list-group">
+                            <li *ngFor="let item of _dieta.notas" class="list-group-item">
+                                {{item}}
+                            </li>
+                        </ul>
+                    </ng-template>
+                </ngb-panel>
+                <ngb-panel id="desayuno" title="Desayuno">
+                    <ng-template ngbPanelContent>
+                        <ul class="list-group">
+                            <li *ngFor="let item of _dieta.desayuno" class="list-group-item">
+                                {{item}}
+                            </li>
+                        </ul>
+                    </ng-template>
+                </ngb-panel>
+                <ngb-panel id="merienda" title="Merienda">
+                    <ng-template ngbPanelContent>
+                        <ul class="list-group">
+                            <li *ngFor="let item of _dieta.merienda" class="list-group-item">
+                                {{item}}
+                            </li>
+                        </ul>
+                    </ng-template>
+                </ngb-panel>
+                <ngb-panel id="comida" title="Comida">
+                    <ng-template ngbPanelContent>
+                        <ul class="list-group">
+                            <li *ngFor="let item of currentItem.comida" class="list-group-item">
+                                {{item}}
+                            </li>
+                        </ul>
+                    </ng-template>
+                </ngb-panel>
+                <ngb-panel id="cena" title="Cena">
+                    <ng-template ngbPanelContent>
+                        <ul class="list-group">
+                            <li *ngFor="let item of currentItem.cena" class="list-group-item">
+                                {{item}}
+                            </li>
+                        </ul>
+                    </ng-template>
+                </ngb-panel>
             </ngb-accordion>
         </div>
     </div>

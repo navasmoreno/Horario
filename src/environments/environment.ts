@@ -7,6 +7,14 @@ export const environment = {
   dietasRoute: "assets/dietas",
   horariosRoute: "assets/horarios",
   dietaPaginacionlocalstorage: "20c15e9960a8c7a7e98969c4fc786d83",
+  horarios : [
+    {nombre:"Isabel",link:"isabel"},
+    {nombre:"Rodrigo",link:"rodrigo"}
+  ],
+  dietas : [
+    {nombre:"Dieta del bocadillo (semanas)",link:"dietabocadillo1"},
+    {nombre:"Dieta del bocadillo (días)",link:"dietabocadillo2"},
+  ],
 };
 
 /*

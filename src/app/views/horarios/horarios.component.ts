@@ -27,27 +27,10 @@ export class HorariosComponent implements OnInit {
       this.name = params['name'];
     });
     var id = this.route.snapshot.paramMap.get('id');
-    switch (id) {
-      case "eb5094069f5e287ad7cfce5fc944f1c6565da2481af83fd5c24568e2481d09e3": //Isabel
-        this.getJSON(environment.horariosRoute + "/isabel.json").subscribe(data => {
-          this.horario = data;
-          this.titulo = "Isabel";
-        });
-        break;
-      case "c9fd92c735c7609969a0ab48b6dc2fda85a06e135196571c06708222baf5a2e7": //Rodrigo
-        this.getJSON(environment.horariosRoute + "/rodrigo.json").subscribe(data => {
-          this.horario = data;
-          this.titulo = "Rodrigo";
-        });
-        break;
-      default:
-        this.getJSON(environment.horariosRoute + "/default.json").subscribe(data => {
-          this.horario = data;
-        });
-        break;
-
-    }
-
+    this.getJSON(`${environment.horariosRoute}/${id}.json`).subscribe(data => {
+      this.horario = data;
+      this.titulo = id;
+    });
   }
   public getJSON(_jsonURL: string): Observable<any> {
     return this.http.get(_jsonURL);

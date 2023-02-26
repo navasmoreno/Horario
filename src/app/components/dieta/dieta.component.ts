@@ -7,47 +7,65 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./dieta.component.scss']
 })
 export class DietaComponent implements OnInit {
-  currentSemana: any = null;
+  currentItem: any = null;
   @Input()
   set dieta(val: any) {
     if (val) {
-      this.size = val.semanas.length * 10;
+      console.log(val);
       this._dieta = val;
-      this.semanaTo(this.current);
+      // Para las dietas por semanas
+      if (val.hasOwnProperty('semanas')) {
+        this.array=val.semanas;
+      }
+      //Para las dietas por días
+      if (val.hasOwnProperty('dias')) {
+        this.array = val.dias;
+      }
+      if (this._id != "") {
+        this.arrayTo(this.currentSelected);
+      }
     }
   }
   _dieta: any | {} = undefined;
-  current = 0;
-  size = 10;
-  show :any = {min:0,max:5};
+  @Input()
+  set id(val: string) {
+    this._id = val;
+    var localStoragecurrent = localStorage.getItem(`${environment.dietaPaginacionlocalstorage}_${this._id}`);
+    this.currentSelected = localStoragecurrent != null ? parseInt(localStoragecurrent) : 1;
+    if (this._dieta != undefined){
+      this.arrayTo(this.currentSelected);
+    } 
+  }
+  _id: string = "";
+  array: any = [];
+  currentSelected = 0;
+  show: any = { min: 0, max: 4 };
   constructor() {
-    var localStoragecurrent = localStorage.getItem(environment.dietaPaginacionlocalstorage);
-    this.current = localStoragecurrent != null ? parseInt(localStoragecurrent) : 1;
   }
 
   ngOnInit(): void {
   }
 
-  semanaTo(index: any) {
-    if (index >= 0 && index < this._dieta.semanas.length) {
-      this.currentSemana = this._dieta.semanas[index];
-      this.current = index;
-      localStorage.setItem(environment.dietaPaginacionlocalstorage,this.current.toString());
+  arrayTo(index: any) {
+    console.log("[ARRAYTO]",index,this.array.length,`${environment.dietaPaginacionlocalstorage}_${this._id}`);
+    if (index >= 0 && index < this.array.length) {
+      this.currentItem = this.array[index];
+      this.currentSelected = index;
+      localStorage.setItem(`${environment.dietaPaginacionlocalstorage}_${this._id}`, this.currentSelected.toString());
       this.setMiddle();
     }
   }
-  setMiddle(){
-    if(this.current<2) {
-      this.show.min=0;
-      this.show.max=4
-    } else if(this.current>this._dieta.semanas.length-3) {
-      this.show.min=this._dieta.semanas.length-6;
-      this.show.max=this._dieta.semanas.length-1;
+  setMiddle() {
+    if (this.currentSelected < 2) {
+      this.show.min = 0;
+      this.show.max = 4
+    } else if (this.currentSelected > this.array.length - 3) {
+      this.show.min = this.array.length - 5;
+      this.show.max = this.array.length - 1;
     }
     else {
-      this.show.min=this.current-2;
-      this.show.max=this.current+2;
+      this.show.min = this.currentSelected - 2;
+      this.show.max = this.currentSelected + 2;
     }
-    console.log(this.show.min,this.show.max,this.current,this._dieta.semanas.length);
   }
 }

@@ -1,0 +1,202 @@
+{
+  "nombre": "Dieta del bocadillo",
+  "notas": [
+    "TODOS LOS ALIMENTOS SE PESAN EN CRUDO CON PIEL Y HUESOS, SALVO EN EL CASO DE QUE SE ESPECIFIQUE LO CONTRARIO Y QUE LOS ACEITES, MANTEQUILLAS, QUESOS Y MAYONESAS NO SE CONSIDERAN CONDIMENTOS HABITUALES Y SIEMPRE DEBEN SER MEDIDOS CORRECTAMENTE.",
+    "LAS PIEZAS DE FRUTA DEBEN PESAR 150 GR APROXIMADAMENTE, Y PUEDEN SER SUSTITUIDAS POR 300 GR DE MELON O 400 GR DE SANDIA",
+    "LAS FRUTAS DE CADA GRUPO SON INTERCAMBIABLES ENTRE SI. LAS DEL GRUPO I PUEDEN SUSTITUIR A LAS DEL GRUPO II, PERO NUNCA AL CONTRARIO.",
+    "INTERCAMBIOS DE FRUTAS GRUPO I: naranja, mandarina, fresas, piña en su jugo, nísperos, melón y sandia",
+    "INTERCAMBIOS DE FRUTAS GRUPO II: pera, manzana, kiwi, melocotón, ciruelas, albaricoques y mango"
+  ],
+  "desayuno": [
+    "Vaso de leche desnatada (lo puedes repartir en las tomas que quieras, café por la mañana y en la merienda, por ejemplo)",
+    "50 gr de pan integral con 10 gr de margarina ligeresa (te lo puedes comer en la merienda si prefieres)"
+  ],
+  "merienda": ["Un yogurt desnatado"],
+  "dias": [
+    {
+      "comida": [
+        "Macarrones con carne: 70 gr de macarrones, 50 gr de ternera magra, 50 gr de cebolla, 4 cucharadas de tomate frito, los condimentos habituales",
+        "Ensalada: 100 gr de tomate, 100 gr de lechuga, 100 gr de pepino, los condimentos habituales, sin aceite",
+        "25 gr de pan integral",
+        "150 gr de piña en su jugo"
+      ],
+      "cena": [
+        "Bocadillo de calamares o mejillones; 75gr de pan integral (yo lo compro de barra finita,y resulta un pedazo de bocadillo), 80 gr de calamares o mejillones, de lata",
+        "1 naranja"
+      ]
+    },
+    {
+      "comida": [
+        "Carne en salsa: 175 gr de carne ternera magra, media cucharada de aceite de oliva, 100gr de tomate, 50 gr de c cebolla, 150 gr de champiñones, los condimentos habituales",
+        "Ensalada: 100 gr de tomate, 100 gr de lechuga, 100 gr de pepino, los condimentos habituales, sin aceite",
+        "25 gr de pan integral",
+        "150 gr de piña en su jugo"
+      ],
+      "cena": [
+        "Bocadillo de atún: 75 gr de pan integral, 50 gr de atún al natural, una cucharada de tomate frito",
+        "1 naranja"
+      ]
+    },
+    {
+      "comida": [
+        "lentejas: 60 gr de lentejas, media cucharada de aceite de oliva, 50 gr de tomate, 50 gr de cebolla, 50 gr de zanahoria, 50 gr de patata, 100 gr de calabacines, los condimentos habituales",
+        "Ensalada: 100 gr de tomate, 100 gr de lechuga, 100 gr de pepino, los condimentos habituales, sin aceite",
+        "25 gr de pan integral",
+        "1 naranja"
+      ],
+      "cena": [
+        "Bocadillo de beicon: 75 gr de pan integral, 50 gr de bacon (hacerlo sin aceite)",
+        "150 gr de piña en su jugo"
+      ]
+    },
+    {
+      "comida": [
+        "Pollo a la plancha: 200 gr de pollo limpio, 150 gr de patatas cocidas, los condimentos habituales",
+        "Ensalada: 100 gr de tomate, 100 gr de lechuga, 100 gr de pepino, los condimentos habituales, sin aceite",
+        "25 gr de pan integral",
+        "100 gr de piña en su jugo"
+      ],
+      "cena": [
+        "Bocadillo de tortilla: 75 gr de pan integral, y 2 huevos(Puedes sustituir un huevo por 75 gr de patatas cocidas)",
+        "1 naranja"
+      ]
+    },
+    {
+      "comida": [
+        "Cocido: 55 gr de garbanzos, 50 gr de pollo limpio, 50 gr de ternera magra, 50 gr de patata, 50 gr de zanahoria, 50 gr de apio, 100 gr de puerro, los condimentos habituales",
+        "Ensalada: 100 gr de tomate, 100 gr de lechuga, 100 gr de pepino, los condimentos habituales, sin aceite",
+        "25 gr de pan integral",
+        "1 naranja"
+      ],
+      "cena": [
+        "Bocadillo de jamón: 75 gr de pan integral, 50 gr de jamón serrano",
+        "100 gr de piña en su jugo"
+      ]
+    },
+    {
+      "comida": [
+        "Pescado a la plancha: 300 gr de emperador u otro pescado de corte, 300 gr de sardinas, 400 gr de salmonetes, 350 gr de rape limpio, 300 gr de merluza limpia, 300 gr de caballa, o 300 gr de boquerones,( a elegir un pescado)",
+        "200 gr de espárragos blancos",
+        "Ensalada: 100 gr de tomate, 100 gr de lechuga, 100 gr de pepino, los condimentos habituales, sin aceite",
+        "25 gr de pan integral",
+        "100 gr de kiwi"
+      ],
+      "cena": [
+        "Bocadillo de chorizo de pavo: 75 gr de pan integral, 50 gr de chorizo de pavo",
+        "1 pera"
+      ]
+    },
+    {
+      "comida": [
+        "Paella: 60 gr de arroz, media cucharada de aceite de oliva (si echas 1 no pasa nada), 100 gr de tomate, 50 gr de pollo limpio, 50 gr de calamares, 50 gr de gambas, los condimentos habituales",
+        "Ensalada: 100 gr de tomate, 100 gr de lechuga, 100 gr de pepino, los condimentos habituales, sin aceite",
+        "25 gr de pan integral",
+        "100 gr de kiwi"
+      ],
+      "cena": [
+        "Bocadillo de mejillones: 75 gr de pan integral, 80 gr de mejillones en conserva( se puede sustituir por una lata de atún al natural con una cucharada de tomate frito)",
+        "100 gr de piña en su jugo"
+      ]
+    },
+    {
+      "comida": [
+        "Revuelto de espinacas: 300 gr de espinacas, ( yo las compro de bote de cristal); media cucharada de aceite de oliva, un huevo, 50 gr de jamón serrano, los condimentos habituales",
+        "Ensalada: 100 gr de tomate, 100 gr de lechuga, 100 gr de pepino, los condimentos habituales, sin aceite",
+        "25 gr de pan integral",
+        "1 naranja"
+      ],
+      "cena": [
+        "Bocadillo de queso: 75 gr de pan integral, 60 gr de queso manchego semicurado ó 110gr de queso de burgos",
+        "100 gr de piña en su jugo"
+      ]
+    },
+    {
+      "comida": [
+        "Ensaladilla rusa: 200 gr de patatas, 30 gr de atún al natural, 25 gr de aceitunas, 25 gr de maíz, medio huevo, una cucharada de mayonesa ligeresa (es de los días que te quedas mas llen@)",
+        "Ensalada: 100 gr de tomate, 100 gr de lechuga, 100 gr de pepino, los condimentos habituales, sin aceite",
+        "25 gr de pan integral",
+        "100 gr de piña en su jugo"
+      ],
+      "cena": [
+        "Bocadillo de salchichón de pavo: 75 gr de pan integral, 50 gr de salchichón de pavo",
+        "1 naranja"
+      ]
+    },
+    {
+      "comida": [
+        "Opción 1: Menestra de verduras: 100 gr de guisantes limpios, 100 gr de zanahoria, 100 gr de judías verdes, 100 gr de coliflor, 100 gr de espárragos, 100 gr de tomate, 50 gr de cebolla, media cucharada de aceite de oliva, un huevo, los condimentos habituales",
+        "Ensalada: 100 gr de tomate, 100 gr de lechuga, 100 gr de pepino, los condimentos habituales, sin aceite",
+        "Opción 2: Coliflor con bechamel: 300 gr de coliflor, 15 gr de margarina ligeresa, 15 gr de harina, medio vaso de leche desnatada, 20 gr de queso rallado, los condimentos habituales",
+        "25 gr de pan integral",
+        "1 naranja"
+      ],
+      "cena": [
+        "Bocadillo de mortadela: 75 gr de pan integral, 50 gr de mortadela",
+        "1 pera"
+      ]
+    },
+    {
+      "comida": [
+        "Guisantes con jamón: 250 gr de guisantes limpios, 50 gr de cebolla, 40 gr de jamón serrano, media cucharada de aceite de oliva, los condimentos habituales",
+        "Ensalada: 100 gr de tomate, 100 gr de lechuga, 100 gr de pepino, los condimentos habituales, sin aceite",
+        "25 gr de pan integral",
+        "150 gr de piña en su jugo"
+      ],
+      "cena": [
+        "Hamburguesa casera: 100 gr de ternera magra, la cuarta parte de un huevo, 15 gr de queso en tranchetes, una cucharada de kétchup, 50 gr de lechuga, 50 gr de cebolla, los condimentos habituales",
+        "50 gr de pan integral",
+        "100 gr de mandarinas"
+      ]
+    },
+    {
+      "comida": [
+        "Chuletas asadas: 250 gr de chuletas de cordero, 150 gr de patatas cocidas, los condimentos habituales",
+        "Ensalada: 100 gr de tomate, 100 gr de lechuga, 100 gr de pepino, los condimentos habituales, sin aceite",
+        "25 gr de pan integral",
+        "100 gr de mandarinas"
+      ],
+      "cena": [
+        "Bocadillo de salmón: 75 gr de pan integral, 50 gr de salmón ahumado, 100 gr de tomate en rodajitas finas",
+        "100 gr de piña en su jugo"
+      ]
+    },
+    {
+      "comida": [
+        "Habichuelas: 70 gr de habichuelas, media cucharada de aceite de oliva, 100 gr de tomate, 50 gr de cebolla, 50 gr de patatas, los condimentos habituales (le podéis echar chorizo, morcilla, beicon, para que le de gusto, pero después no os lo comáis, con las lentejas podéis hacer lo mismo)",
+        "Ensalada: 100 gr de tomate, 100 gr de lechuga, 100 gr de pepino, los condimentos habituales, sin aceite",
+        "25 gr de pan integral",
+        "1 naranja"
+      ],
+      "cena": [
+        "Bocadillo de salchichas: 75 gr de pan integral, 60 gr de salchichas tipo Frankfurt (yo le echo un poquito de kétchup)",
+        "100 gr de mandarinas"
+      ]
+    },
+    {
+      "comida": [
+        "Sopa de fideos: 20 gr de fideos, los condimentos habituales (puede ser sopa de Avecrem que esta muy buena, vamos de pastillita de caldo)",
+        "Tortilla de patatas:125 gr de patatas comidas, 2 huevos, media cucharada de aceite de oliva, los condimentos habituales",
+        "Ensalada: 100 gr de tomate, 100 gr de lechuga, 100 gr de pepino, los condimentos habituales, sin aceite",
+        "25 gr de pan integral",
+        "100 gr de mandarinas"
+      ],
+      "cena": [
+        "Bocadillo de atún: 75 gr de pan integral, 50 gr de atún al natural, una cucharada de tomate frito",
+        "1 naranja"
+      ]
+    },
+    {
+      "comida": [
+        "Sopa de fideos: 20 gr de fideos, con una pastillita de caldo",
+        "Huevos rellenos: 2 huevos, 30 gr de atún al natural, 2 cucharadas de tomate frito, una cucharada de mayonesa ligeresa, los condimentos habituales",
+        "Ensalada: 100 gr de tomate, 100 gr de lechuga, 100 gr de pepino, los condimentos habituales, sin aceite",
+        "25 gr de pan integral",
+        "100 gr de kiwi"
+      ],
+      "cena": [
+        "Bocadillo de jamón serrano: 75 gr de pan integral, 50 gr de jamón serrano",
+        "100 gr de mandarinas"
+      ]
+    }
+  ]
+}
