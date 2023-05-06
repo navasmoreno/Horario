@@ -17,7 +17,8 @@ export class DiasComponent implements OnInit {
   }
   @Input()
   set posicion(val: number) {
-    if (val) {
+    if (val!=null) {
+      console.log(this._dieta.dias[val],val);
       if(this._dieta && val<this._dieta.dias.length){
         this.currentItem = this._dieta.dias[val];
       }

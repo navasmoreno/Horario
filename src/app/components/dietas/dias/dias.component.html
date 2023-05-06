@@ -1,4 +1,4 @@
-<div>    
+<div *ngIf="currentItem!=null">    
     <ngb-accordion #acc="ngbAccordion" [activeIds]="_dieta.hasOwnProperty('desayuno')?'comida,cena':'comida,cena,desayuno'" [closeOthers]="false">
         <ngb-panel *ngIf="_dieta.hasOwnProperty('notas')" id="notas" title="Notas">
             <ng-template ngbPanelContent>
