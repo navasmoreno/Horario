@@ -1,0 +1,107 @@
+{
+    "nombre": "Dieta de los 15 días",
+    "notas": [
+      "ESTA DIETA NO ADMITE EXCEPCIONES",
+      "La dieta se repetirá durante 2 semanas",
+      "Esta dieta no se debe repetir hasta pasados 6 meses"
+    ],
+    "dias": [
+      {
+        "desayuno": [
+          "Café"
+        ],
+        "comida": [
+          "2 huevos",
+          "Espinacas"
+        ],
+        "cena": [
+          "150gr de carne magra",
+          "Ensalada de lechuga"
+        ]
+      },
+      {
+        "desayuno": [
+          "Café",
+          "Tostada de pan integral"
+        ],
+        "comida": [
+          "150gr de carne blanca",
+          "Ensalada de lechuga y tomate / fruta"
+        ],
+        "cena": [
+          "150gr de carne magra",
+          "Ensalada de lechuga"
+        ]
+      },
+      {
+        "desayuno": [
+          "Café",
+          "Tostada de pan integral"
+        ],
+        "comida": [
+          "2 huevos duros",
+          "Ensalada de tomate"
+        ],
+        "cena": [
+          "150gr de jamon york",
+          "Ensalada de lechuga"
+        ]
+      },
+      {
+        "desayuno": [
+          "Café",
+          "Tostada de pan integral"
+        ],
+        "comida": [
+          "1 huevo duro",
+          "Zanahoria",
+          "Queso Gruyere"
+        ],
+        "cena": [
+          "Ensalada de frutas",
+          "Yogurth"
+        ]
+      },
+      {
+        "desayuno": [
+          "Café",
+          "Tostada de pan integral"
+        ],
+        "comida": [
+          "150gr de pollo",
+          "Ensalada de tomate"
+        ],
+        "cena": [
+          "150gr de carne magra",
+          "Ensalada"
+        ]
+      },
+      {
+        "desayuno": [
+          "Café",
+          "Tostada de pan integral"
+        ],
+        "comida": [
+          "Pollo a la parrilla"
+        ],
+        "cena": [
+          "2 huevos",
+          "Zanahorias ralladas"
+        ]
+      },
+      {
+        "desayuno": [
+          "Café",
+          "Tostada de pan integral"
+        ],
+        "comida": [
+          "150gr de carne",
+          "Ensalada de fruta"
+        ],
+        "cena": [
+          "Repetir otra cena de la dieta"
+        ]
+      }
+    ]
+  }
+  
