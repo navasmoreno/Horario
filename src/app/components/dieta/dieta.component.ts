@@ -11,7 +11,7 @@ export class DietaComponent implements OnInit {
   @Input()
   set dieta(val: any) {
     if (val) {
-      console.log(val);
+      // console.log(val);
       this._dieta = val;
       if(val.hasOwnProperty("nombre"))document.title = val.nombre;
       // Para las dietas por semanas

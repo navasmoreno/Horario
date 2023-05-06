@@ -10,6 +10,6 @@ export const environment = {
   dietas : [
     {nombre:"Dieta del bocadillo (semanas)",link:"dietabocadillo1"},
     {nombre:"Dieta del bocadillo (días)",link:"dietabocadillo2"},
-    {nombre:"Dieta de los 15 días",link:"dieta15dias"},
+    {nombre:"Dieta de los 13 días",link:"dieta13dias"},
   ],
 };

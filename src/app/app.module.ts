@@ -12,6 +12,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DietaComponent } from './components/dieta/dieta.component';
 import { DietasComponent } from './views/dietas/dietas.component';
+import { SemanasComponent } from './components/dietas/semanas/semanas.component';
+import { DiasComponent } from './components/dietas/dias/dias.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { DietasComponent } from './views/dietas/dietas.component';
     PageNotFoundComponent,
     HeaderComponent,
     DietaComponent,
-    DietasComponent
+    DietasComponent,
+    SemanasComponent,
+    DiasComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,79 @@
+
+<ngb-accordion #acc="ngbAccordion" activeIds="comidas" [closeOthers]="true">
+    <ngb-panel id="aldia" title="Para comer durante todo el día">
+        <ng-template ngbPanelContent>
+            <ul class="list-group">
+                <li *ngFor="let item of currentItem.aldia" class="list-group-item">
+                    {{item}}
+                </li>
+            </ul>
+        </ng-template>
+    </ngb-panel>
+
+    <ngb-panel id="libres" title="Alimentos libres">
+        <ng-template ngbPanelContent>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    {{currentItem.libres}}
+                </li>
+            </ul>
+        </ng-template>
+    </ngb-panel>
+
+    <ngb-panel titl id="nolibres" title="Alimentos no libres">
+        <ng-template ngbPanelContent>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    {{currentItem.nolibres}}
+                </li>
+            </ul>
+        </ng-template>
+    </ngb-panel>
+
+    <ngb-panel id="comidas" title="Comidas">
+        <ng-template ngbPanelContent>
+            <ul class="list-group">
+                <li *ngIf="currentItem.comidasNotas && currentItem.comidasNotas.length>0"
+                    class="list-group-item d-flex justify-content-start align-items-center disabled">
+                    <p class="m-0">{{currentItem.comidasNotas}}</p>
+                </li>
+                <li *ngFor="let item of currentItem.comidas"
+                    class="list-group-item d-flex justify-content-start align-items-center">
+                    <p class="m-0 pe-3 pe-md-5 text-bold">
+                        {{item.repeticiones}}
+                    </p>
+                    <div>
+                        <div *ngFor="let comida of item.platos">
+                            {{comida}}
+                        </div>
+                    </div>
+
+                </li>
+            </ul>
+        </ng-template>
+    </ngb-panel>
+
+    <ngb-panel id="cenas" title="Cenas">
+        <ng-template ngbPanelContent>
+            <ul class="list-group">
+                <li *ngIf="currentItem.cenasNotas"
+                    class="list-group-item d-flex justify-content-start align-items-center disabled">
+                    <p class="m-0">{{currentItem.cenasNotas}}</p>
+                </li>
+                <li *ngFor="let item of currentItem.cenas"
+                    class="list-group-item d-flex justify-content-start align-items-center">
+                    <p class="m-0 pe-3 pe-md-5 text-bold">
+                        {{item.repeticiones}}
+                    </p>
+                    <div>
+                        <div *ngFor="let cena of item.platos">
+                            {{cena}}
+                        </div>
+                    </div>
+
+                </li>
+            </ul>
+        </ng-template>
+    </ngb-panel>
+
+</ngb-accordion>

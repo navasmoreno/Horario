@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.itemSelected = this.route.snapshot.paramMap.get('id') ?? "";
-    console.log(this.itemSelected);
+    // console.log(this.itemSelected);
   }
 
 }

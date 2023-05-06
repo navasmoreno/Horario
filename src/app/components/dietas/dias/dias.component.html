@@ -1,0 +1,54 @@
+<div>    
+    <ngb-accordion #acc="ngbAccordion" [activeIds]="_dieta.hasOwnProperty('desayuno')?'comida,cena':'comida,cena,desayuno'" [closeOthers]="false">
+        <ngb-panel *ngIf="_dieta.hasOwnProperty('notas')" id="notas" title="Notas">
+            <ng-template ngbPanelContent>
+                <ul class="list-group">
+                    <li *ngFor="let item of _dieta.notas" class="list-group-item">
+                        {{item}}
+                    </li>
+                </ul>
+            </ng-template>
+        </ngb-panel>
+        <ngb-panel *ngIf="_dieta.hasOwnProperty('desayuno') || currentItem.hasOwnProperty('desayuno')" id="desayuno" title="Desayuno">
+            <ng-template ngbPanelContent>
+                <ul *ngIf="_dieta.hasOwnProperty('desayuno')" class="list-group">
+                    <li *ngFor="let item of _dieta.desayuno" class="list-group-item">
+                        {{item}}
+                    </li>
+                </ul>
+                <ul *ngIf="currentItem.hasOwnProperty('desayuno')" class="list-group">
+                    <li *ngFor="let item of currentItem.desayuno" class="list-group-item">
+                        {{item}}
+                    </li>
+                </ul>
+            </ng-template>
+        </ngb-panel>
+        <ngb-panel *ngIf="_dieta.hasOwnProperty('merienda')" id="merienda" title="Merienda">
+            <ng-template ngbPanelContent>
+                <ul class="list-group">
+                    <li *ngFor="let item of _dieta.merienda" class="list-group-item">
+                        {{item}}
+                    </li>
+                </ul>
+            </ng-template>
+        </ngb-panel>
+        <ngb-panel id="comida" title="Comida">
+            <ng-template ngbPanelContent>
+                <ul class="list-group">
+                    <li *ngFor="let item of currentItem.comida" class="list-group-item">
+                        {{item}}
+                    </li>
+                </ul>
+            </ng-template>
+        </ngb-panel>
+        <ngb-panel id="cena" title="Cena">
+            <ng-template ngbPanelContent>
+                <ul class="list-group">
+                    <li *ngFor="let item of currentItem.cena" class="list-group-item">
+                        {{item}}
+                    </li>
+                </ul>
+            </ng-template>
+        </ngb-panel>
+    </ngb-accordion>
+</div>
