@@ -13,10 +13,10 @@ export class DietaComponent implements OnInit {
     if (val) {
       // console.log(val);
       this._dieta = val;
-      if(val.hasOwnProperty("nombre"))document.title = val.nombre;
+      if (val.hasOwnProperty("nombre")) document.title = val.nombre;
       // Para las dietas por semanas
       if (val.hasOwnProperty('semanas')) {
-        this.array=val.semanas;
+        this.array = val.semanas;
       }
       //Para las dietas por días
       if (val.hasOwnProperty('dias')) {
@@ -33,9 +33,9 @@ export class DietaComponent implements OnInit {
     this._id = val;
     var localStoragecurrent = localStorage.getItem(`${environment.dietaPaginacionlocalstorage}_${this._id}`);
     this.currentSelected = localStoragecurrent != null ? parseInt(localStoragecurrent) : 1;
-    if (this._dieta != undefined){
+    if (this._dieta != undefined) {
       this.arrayTo(this.currentSelected);
-    } 
+    }
   }
   _id: string = "";
   array: any = [];
@@ -48,7 +48,7 @@ export class DietaComponent implements OnInit {
   }
 
   arrayTo(index: any) {
-    console.log("[ARRAYTO]",index,this.array.length,`${environment.dietaPaginacionlocalstorage}_${this._id}`);
+    console.log("[ARRAYTO]", index, this.array.length, `${environment.dietaPaginacionlocalstorage}_${this._id}`);
     if (index >= 0 && index < this.array.length) {
       this.currentItem = this.array[index];
       this.currentSelected = index;

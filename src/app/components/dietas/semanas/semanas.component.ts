@@ -17,8 +17,8 @@ export class SemanasComponent implements OnInit {
   }
   @Input()
   set posicion(val: number) {
-    if (val) {
-      if(this._dieta && val<this._dieta.semanas.length){
+    if (val != null) {
+      if (this._dieta && val < this._dieta.semanas.length) {
         this.currentItem = this._dieta.semanas[val];
       }
     }

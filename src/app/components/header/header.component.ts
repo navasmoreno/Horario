@@ -15,10 +15,10 @@ export class HeaderComponent implements OnInit {
   dietas: { nombre: string; link: string; }[];
   constructor(
     private route: ActivatedRoute, private router: Router, private http: HttpClient
-  ) { 
-    this.itemSelected="";
+  ) {
+    this.itemSelected = "";
     this.horarios = environment.horarios;
-    this.dietas=environment.dietas;
+    this.dietas = environment.dietas;
   }
 
   ngOnInit(): void {
