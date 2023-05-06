@@ -1,3 +1,42 @@
-.page-link {
-    min-width: 45px;
-}
+
+
+ /* Media querys desde cierto tamaño */
+ /*Small devices (landscape phones, 576px and up)*/
+ @media (min-width: 576px) {
+    .page-link {
+        min-width: 45px;
+    }
+  }
+  
+  /*Medium devices (tablets, 768px and up)*/
+  @media (min-width: 768px) {
+  }
+  
+  /*Large devices (desktops, 992px and up)*/
+  @media (min-width: 992px) {
+  }
+  
+  /*Extra large devices (large desktops, 1200px and up)*/
+  @media (min-width: 1200px) {
+  }
+  /* Media querys  hasta cierto tamaño*/
+  /*Small devices (landscape phones, 576px and up)*/
+  @media (max-width: 576px) {
+    nav ul li div{
+        font-size: 0.8rem;
+    }
+    
+  }
+  
+  /*Medium devices (tablets, 768px and up)*/
+  @media (max-width: 768px) {
+  }
+  
+  /*Large devices (desktops, 992px and up)*/
+  @media (max-width: 992px) {
+  }
+  
+  /*Extra large devices (large desktops, 1200px and up)*/
+  @media (max-width: 1200px) {
+  }
+  
