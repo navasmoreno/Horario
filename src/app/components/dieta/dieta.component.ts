@@ -48,7 +48,6 @@ export class DietaComponent implements OnInit {
   }
 
   arrayTo(index: any) {
-    console.log("[ARRAYTO]", index, this.array.length, `${environment.dietaPaginacionlocalstorage}_${this._id}`);
     if (index >= 0 && index < this.array.length) {
       this.currentItem = this.array[index];
       this.currentSelected = index;

@@ -1,8 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { FirebaseService } from 'src/app/services/firebase.service';
 
 @Component({
   selector: 'app-dietas',
@@ -11,28 +9,33 @@ import { environment } from 'src/environments/environment';
 })
 export class DietasComponent implements OnInit {
 
-  name: any;
   dieta: any = null;
   selected: string = "dieta";
   id: string = "";
   constructor(
-    private route: ActivatedRoute, private router: Router, private http: HttpClient
+    private route: ActivatedRoute, private router: Router, public firebase: FirebaseService
   ) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+  }
+  
+  ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id') ?? "";
-    this.getJSON(`${environment.dietasRoute}/${this.id}.json`).subscribe(
-      data => {
-        this.dieta = data;
-      },
-      error => {
-        console.log(this.dieta,error);
-      }
-    );
+    this.getDieta(this.id);
   }
 
-  ngOnInit(): void {
+  getDieta = async (id: string) => {
+    if (this.id != "") {
+      this.firebase.getDoc(this.selected, this.id).then(data => {
+        console.log(data);
+        this.setDieta(data);
+
+      });
+    }
+
   }
-  public getJSON(_jsonURL: string): Observable<any> {
-    return this.http.get(_jsonURL);
+
+  setDieta = (data: any) => {    
+    this.dieta = data;
+    document.title = `${data.nombre}`;
   }
 }
