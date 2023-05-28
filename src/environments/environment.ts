@@ -8,7 +8,7 @@ export const environment = {
     { nombre: "Rodrigo", link: "rodrigo" }
   ],
   dietas: [
-    { nombre: "Dieta del bocadillo (semanas)", link: "dietabocadillo1" },
+    { nombre: "Dieta del bocadillo (semanas)", link: "dietabocadillo" },
     { nombre: "Dieta del bocadillo (días)", link: "dietabocadillo2" },
     { nombre: "Dieta de los 13 días", link: "dieta13dias" },
   ],

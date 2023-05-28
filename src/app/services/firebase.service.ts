@@ -2,6 +2,15 @@ import { Injectable } from '@angular/core';
 import { initializeApp } from 'firebase/app';
 import { Firestore, collection, doc, getDoc, getDocs, getFirestore, setDoc } from 'firebase/firestore/lite';
 
+const firebaseConfig = {
+  apiKey: "AIzaSyAiZMOA8Xwah60YhRmmcsqz7u6Yv1eABuA",
+  authDomain: "navas-moreno.firebaseapp.com",
+  projectId: "navas-moreno",
+  storageBucket: "navas-moreno.appspot.com",
+  messagingSenderId: "280089537055",
+  appId: "1:280089537055:web:71cf187e885adeddf7032a"
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -9,21 +18,10 @@ export class FirebaseService {
   db: Firestore;
   collection: any;
 
-
-  firebaseConfig: any = {
-    apiKey: "AIzaSyB5RCk6HR_82HEcMrf6htujb2sKsoBBLuY",
-    authDomain: "navas-moreno-20040724.firebaseapp.com",
-    databaseURL: "https://navas-moreno-20040724-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "navas-moreno-20040724",
-    storageBucket: "navas-moreno-20040724.appspot.com",
-    messagingSenderId: "419587359065",
-    appId: "1:419587359065:web:33be5fa7949c59ca198c48",
-    measurementId: "G-63KLJ3L4MH"
-  };
   constructor() {
 
     // Initialize Firebase
-    const app = initializeApp(this.firebaseConfig);
+    const app = initializeApp(firebaseConfig);
     // const analytics = getAnalytics(app);
     this.db = getFirestore(app);
   }
