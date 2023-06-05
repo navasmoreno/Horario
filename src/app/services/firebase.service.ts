@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { initializeApp } from 'firebase/app';
-import { Firestore, collection, doc, getDoc, getDocs, getFirestore, setDoc } from 'firebase/firestore/lite';
+import { Firestore, Query, collection, doc, getDoc, getDocs, getFirestore, query, setDoc } from 'firebase/firestore/lite';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAiZMOA8Xwah60YhRmmcsqz7u6Yv1eABuA",
@@ -16,7 +16,6 @@ const firebaseConfig = {
 })
 export class FirebaseService {
   db: Firestore;
-  collection: any;
 
   constructor() {
 
@@ -26,7 +25,9 @@ export class FirebaseService {
     this.db = getFirestore(app);
   }
   getCollection = (name: string) => {
-    this.collection = collection(this.db, name);
+    debugger;
+    var data = collection(this.db, name);
+    return data;
   }
   getDoc = async (name: string, id: string) => {
     const docRef = doc(this.db, name, id);
@@ -38,12 +39,15 @@ export class FirebaseService {
       // docSnap.data() will be undefined in this case
       return null;
     }
-
   }
-  getCollectionData = async () => {
-    const collectionSnapshot = await getDocs(this.collection);
-    const collectionList = collectionSnapshot.docs.map(doc => doc.data());
-    console.log(collectionList);
+  async getAllDocs(name: string) {
+    const q = query(collection(this.db,name));
+    const querySnapshot = await getDocs(q);
+    return querySnapshot;
+  }
+  getDocs = async (query: Query) => {
+    const querySnapshot = await getDocs(query);
+    return querySnapshot;
   }
   addCollectionDoc = async (name: string, id: string, data: any) => {
     await setDoc(doc(this.db, name, id), data);

@@ -41,7 +41,7 @@
             <app-dietasemanas [dieta]="_dieta" [posicion]="currentSelected"></app-dietasemanas>
         </div>
         <div *ngIf="_dieta.hasOwnProperty('dias')" class="col-12">
-            <app-dietadias [dieta]="_dieta" [posicion]="currentSelected"></app-dietadias>
+            <app-dietadias [dieta]="_dieta" [posicion]="currentSelected" [dietaid]="_id"></app-dietadias>
         </div>
     </div>
 </main>

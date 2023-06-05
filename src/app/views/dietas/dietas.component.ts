@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DietasService } from 'src/app/services/dietas.service';
 import { FirebaseService } from 'src/app/services/firebase.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class DietasComponent implements OnInit {
   selected: string = "dieta";
   id: string = "";
   constructor(
-    private route: ActivatedRoute, private router: Router, public firebase: FirebaseService
+    private route: ActivatedRoute, private router: Router, public dietaService: DietasService
   ) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
@@ -25,8 +26,7 @@ export class DietasComponent implements OnInit {
 
   getDieta = async (id: string) => {
     if (this.id != "") {
-      this.firebase.getDoc(this.selected, this.id).then(data => {
-        console.log(data);
+      this.dietaService.getDoc(this.id).then(data => {
         this.setDieta(data);
 
       });

@@ -14,6 +14,8 @@ import { DietaComponent } from './components/dieta/dieta.component';
 import { DietasComponent } from './views/dietas/dietas.component';
 import { SemanasComponent } from './components/dietas/semanas/semanas.component';
 import { DiasComponent } from './components/dietas/dias/dias.component';
+import { DietasService } from './services/dietas.service';
+import { HorariosService } from './services/horarios.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,7 @@ import { DiasComponent } from './components/dietas/dias/dias.component';
     NgbModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [DietasService,HorariosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
