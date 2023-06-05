@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DietasService } from 'src/app/services/dietas.service';
-import { FirebaseService } from 'src/app/services/firebase.service';
 
 @Component({
   selector: 'app-dietas',

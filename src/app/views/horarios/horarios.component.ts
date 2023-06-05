@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FirebaseService } from 'src/app/services/firebase.service';
+import { HorariosService } from 'src/app/services/horarios.service';
 
 @Component({
   selector: 'app-horarios',
@@ -13,7 +13,7 @@ export class HorariosComponent implements OnInit {
   titulo: any;
 
   constructor(
-    private route: ActivatedRoute, private router: Router, public firebase: FirebaseService
+    private route: ActivatedRoute, private router: Router, public horarioService: HorariosService
   ) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
@@ -25,7 +25,7 @@ export class HorariosComponent implements OnInit {
   }
   getHorario = async (id: string) => {
     if (id != "") {
-      this.firebase.getDoc(this.selected, id).then(data => {
+      this.horarioService.getDoc(id).then(data => {
         this.setHorario(data);
 
       });
