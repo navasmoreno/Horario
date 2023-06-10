@@ -16,6 +16,7 @@ import { SemanasComponent } from './components/dietas/semanas/semanas.component'
 import { DiasComponent } from './components/dietas/dias/dias.component';
 import { DietasService } from './services/dietas.service';
 import { HorariosService } from './services/horarios.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { HorariosService } from './services/horarios.service';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [DietasService,HorariosService],
   bootstrap: [AppComponent]

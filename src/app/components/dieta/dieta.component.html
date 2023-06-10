@@ -1,11 +1,17 @@
 <main *ngIf="_dieta != undefined" class="container-fluid px-0">
     <div class="row">
-        <div class="col-12 col-md-4">
-            <div class="h3">
-                {{_dieta.nombre}}
+        <div class="col-12 col-md-4 col-lg-6">
+            <div class="d-flex justify-content-between">
+                <div class="h3 ml-2">
+                    {{_dieta.nombre}}
+                </div>
+                <div style="display: none;">
+                    <button *ngIf="!editando" class="btn btn-primary" (click)="changeEdit()">Editar</button>
+                    <button *ngIf="editando" class="btn btn-danger-light" (click)="changeEdit()">Cancelar</button>
+                </div>
             </div>
         </div>
-        <div class="col-12 col-md-8">
+        <div class="col-12 col-md-8 col-lg-6">
             <div class="float-end">
                 <p *ngIf="_dieta.hasOwnProperty('semanas')" class="d-inline-block pe-5">Semana:</p>
                 <p *ngIf="_dieta.hasOwnProperty('dias')" class="d-inline-block pe-5">Dia:</p>
@@ -16,7 +22,8 @@
                                 <div class="page-link cursor-default text-center" (click)="arrayTo(0)">&lt;&lt;</div>
                             </li>
                             <li class="page-item" [class.disabled]="currentSelected==0">
-                                <div class="page-link cursor-default text-center" (click)="arrayTo(currentSelected-1)">&lt;</div>
+                                <div class="page-link cursor-default text-center" (click)="arrayTo(currentSelected-1)">
+                                    &lt;</div>
                             </li>
                             <li *ngFor="let item of array; let i = index" class="page-item"
                                 [class.d-none]="i<show.min || i > show.max">
@@ -24,10 +31,12 @@
                                     (click)="arrayTo(i)">{{i+1}}</div>
                             </li>
                             <li class="page-item" [class.disabled]="currentSelected==array.length-1">
-                                <div class="page-link cursor-default text-center" (click)="arrayTo(currentSelected+1)">&gt;</div>
+                                <div class="page-link cursor-default text-center" (click)="arrayTo(currentSelected+1)">
+                                    &gt;</div>
                             </li>
                             <li class="page-item" [class.disabled]="currentSelected==array.length-1">
-                                <div class="page-link cursor-default text-center" (click)="arrayTo(array.length-1)">&gt;&gt;</div>
+                                <div class="page-link cursor-default text-center" (click)="arrayTo(array.length-1)">
+                                    &gt;&gt;</div>
                             </li>
                         </ul>
                     </nav>
@@ -38,10 +47,10 @@
     </div>
     <div *ngIf="currentItem != null" class="row">
         <div *ngIf="_dieta.hasOwnProperty('semanas')" class="col-12">
-            <app-dietasemanas [dieta]="_dieta" [posicion]="currentSelected"></app-dietasemanas>
+            <app-dietasemanas [dieta]="_dieta" [posicion]="currentSelected" [id]="_id" [editando]="editando"></app-dietasemanas>
         </div>
         <div *ngIf="_dieta.hasOwnProperty('dias')" class="col-12">
-            <app-dietadias [dieta]="_dieta" [posicion]="currentSelected" [dietaid]="_id"></app-dietadias>
+            <app-dietadias [dieta]="_dieta" [posicion]="currentSelected" [id]="_id" [editando]="editando"></app-dietadias>
         </div>
     </div>
 </main>

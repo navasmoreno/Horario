@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class DietaComponent implements OnInit {
   currentItem: any = null;
+  editando: boolean = false;
   @Input()
   set dieta(val: any) {
     if (val) {
@@ -66,5 +67,9 @@ export class DietaComponent implements OnInit {
       this.show.min = this.currentSelected - 2;
       this.show.max = this.currentSelected + 2;
     }
+  }
+  changeEdit() {
+    this.editando = !this.editando;
+    console.log(this.editando);
   }
 }

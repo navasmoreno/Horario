@@ -1,9 +1,19 @@
-<ngb-accordion #acc="ngbAccordion" activeIds="comidas" [closeOthers]="true">
+<ngb-accordion #acc="ngbAccordion" activeIds="cenas" [closeOthers]="true">
     <ngb-panel id="aldia" title="Para comer durante todo el día">
         <ng-template ngbPanelContent>
             <ul class="list-group">
-                <li *ngFor="let item of currentItem.aldia" class="list-group-item">
-                    {{item}}
+                <li *ngFor="let item of currentItem.aldia;let i = index" class="list-group-item d-flex">
+                    <input type="text" [value]="item" [readonly]="!editando"
+                        (change)="guardarCambio($event.target,'aldia',1,i)" class="border-0 form-control">
+                    <div *ngIf="editando">
+                        <button class="btn btn-sm bg-danger text-white p-2 ms-2" (click)="remove('aldia',i)"
+                            *ngIf="editando"><fa-icon [icon]="faTrash"></fa-icon></button>
+                    </div>
+                </li>
+                <li class="list-group-item" *ngIf="editando">
+                    <button class="btn ms-2 border bg-primary text-white float-end" (click)="add('aldia')">
+                        <fa-icon [icon]="faPlus"></fa-icon>
+                    </button>
                 </li>
             </ul>
         </ng-template>
@@ -13,7 +23,8 @@
         <ng-template ngbPanelContent>
             <ul class="list-group">
                 <li class="list-group-item">
-                    {{currentItem.libres}}
+                    <textarea class="border-0 form-control no-resize" rows="4" [readonly]="!editando"
+                        (change)="guardarCambio($event.target,'libres')">{{currentItem.libres}}</textarea>
                 </li>
             </ul>
         </ng-template>
@@ -23,7 +34,8 @@
         <ng-template ngbPanelContent>
             <ul class="list-group">
                 <li class="list-group-item">
-                    {{currentItem.nolibres}}
+                    <textarea class="border-0 form-control no-resize" rows="4" [readonly]="!editando"
+                        (change)="guardarCambio($event.target,'nolibres')">{{currentItem.nolibres}}</textarea>
                 </li>
             </ul>
         </ng-template>
@@ -32,17 +44,19 @@
     <ngb-panel id="comidas" title="Comidas">
         <ng-template ngbPanelContent>
             <ul class="list-group">
-                <li *ngIf="currentItem.comidasNotas && currentItem.comidasNotas.length>0"
-                    class="list-group-item d-flex justify-content-start align-items-center disabled">
-                    <p class="m-0">{{currentItem.comidasNotas}}</p>
+                <li class="list-group-item d-flex justify-content-start align-items-center ">
+                    <input type="text" [value]="currentItem.comidasNotas" [readonly]="!editando"
+                        (change)="guardarCambio($event.target,'comidasNotas')" class="border-0 form-control">
                 </li>
-                <li *ngFor="let item of currentItem.comidas"
+                <li *ngFor="let item of currentItem.comidas;let i=index"
                     class="list-group-item d-flex justify-content-start align-items-center">
-                    <p class="m-0 pe-3 pe-md-5 text-bold">
+                    <p *ngIf="!editando" class="m-0 pe-3 pe-md-5 text-bold">
                         {{item.repeticiones}}
                     </p>
+                    <input *ngIf="editando" type="number" min="0" step="1" [value]="item.repeticiones"
+                        (change)="guardarCambio($event.target,'comidas',2,i)" class="border-0 form-control">
                     <div>
-                        <div *ngFor="let comida of item.platos">
+                        <div *ngFor="let comida of item.platos;let j=index">
                             {{comida}}
                         </div>
                     </div>
@@ -55,21 +69,36 @@
     <ngb-panel id="cenas" title="Cenas">
         <ng-template ngbPanelContent>
             <ul class="list-group">
-                <li *ngIf="currentItem.cenasNotas"
-                    class="list-group-item d-flex justify-content-start align-items-center disabled">
-                    <p class="m-0">{{currentItem.cenasNotas}}</p>
+                <li class="list-group-item d-flex justify-content-start align-items-center ">
+                    <input type="text" [value]="currentItem.cenasNotas" [readonly]="!editando"
+                        (change)="guardarCambio($event.target,'cenasNotas')" class="border-0 form-control">
                 </li>
-                <li *ngFor="let item of currentItem.cenas"
-                    class="list-group-item d-flex justify-content-start align-items-center">
-                    <p class="m-0 pe-3 pe-md-5 text-bold">
-                        {{item.repeticiones}}
-                    </p>
-                    <div>
-                        <div *ngFor="let cena of item.platos">
-                            {{cena}}
+                <li *ngFor="let item of currentItem.cenas;let i=index"
+                    class="list-group-item d-flex justify-content-start">
+                    <input type="number" min="0" step="1" [value]="item.repeticiones"
+                        (change)="guardarCambio($event.target,'cenas',2,i)" class="border-0 form-control repeticiones"
+                        [readonly]="!editando">
+                    <div class="flex-fill">
+                        <div *ngFor="let cena of item.platos;let j=index" class="d-flex mb-1">
+                            <input type="text" [value]="cena" (change)="guardarCambio($event.target,'cenas',3,i,j)"
+                                class="border-0 form-control" [readonly]="!editando">
+                            <div *ngIf="editando">
+                                <button class="btn btn-sm bg-danger" (click)="remove('cenas',i,j,1)"><fa-icon
+                                        [icon]="faTrash"></fa-icon></button>
+                            </div>
+                        </div>
+                        <div *ngIf="editando" class="mb-1 float-end">
+                            <button class="btn btn-sm btn-success text-white" (click)="add('cenas',2,i)">
+                                <fa-icon [icon]="faPlus"></fa-icon>
+                            </button>
                         </div>
                     </div>
 
+                </li>
+                <li *ngIf="editando" class="list-group-item">
+                    <button class="btn ms-2 border bg-primary text-white float-end" (click)="add('cenas',1)">
+                        <fa-icon [icon]="faPlus"></fa-icon>
+                    </button>
                 </li>
             </ul>
         </ng-template>

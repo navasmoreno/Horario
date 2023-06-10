@@ -1,38 +1,45 @@
-<div *ngIf="currentItem!=null && _dieta!">    
-    <ngb-accordion #acc="ngbAccordion" [activeIds]="_dieta.hasOwnProperty('desayuno')?'comida,cena':'comida,cena,desayuno'" [closeOthers]="false">
+<div *ngIf="currentItem!=null && _dieta!">
+    <ngb-accordion #acc="ngbAccordion"
+        [activeIds]="_dieta.hasOwnProperty('desayuno')?'comida,cena':'comida,cena,desayuno'" [closeOthers]="false">
         <ngb-panel *ngIf="_dieta.hasOwnProperty('notas')" id="notas" title="Notas">
             <ng-template ngbPanelContent>
                 <ul class="list-group">
                     <li *ngFor="let item of _dieta.notas ; let i = index" class="list-group-item d-flex">
-                        <textarea class="form-control w-100 border-0" [id]="'notas_'+i" cols="30" rows="3" (change)="guardarCambio($event)" >{{item}}</textarea>
-                        <div>
-                            <button class="btn btn-close bg-danger p-2 rounded-circle" attr.data-keys="{{'notas_'+i}}" (click)="remove($event)"></button>
+                        <textarea [readonly]="!editando" class="form-control w-100 border-0" [id]="'notas_'+i" cols="30"
+                            rows="3" (change)="guardarCambio($event)">{{item}}</textarea>
+                        <div *ngIf="editando">
+                            <button class="btn btn-close btn-sm bg-danger p-2 rounded-circle ms-2"
+                                attr.data-keys="{{'notas_'+i}}" (click)="remove($event)" *ngIf="editando"></button>
                         </div>
                     </li>
-                    <li class="list-group-item">
-                        <button class="btn rounded-circle border bg-primary text-white float-end" (click)="add('notas')">
+                    <li class="list-group-item" *ngIf="editando">
+                        <button class="btn ms-2 border bg-primary text-white float-end" (click)="add('notas')">
                             <span class="add">+</span>
                         </button>
                     </li>
                 </ul>
             </ng-template>
         </ngb-panel>
-        <ngb-panel *ngIf="_dieta.hasOwnProperty('desayuno') || currentItem.hasOwnProperty('desayuno')" id="desayuno" title="Desayuno">
+        <ngb-panel *ngIf="_dieta.hasOwnProperty('desayuno') || currentItem.hasOwnProperty('desayuno')" id="desayuno"
+            title="Desayuno">
             <ng-template ngbPanelContent>
                 <ul *ngIf="_dieta.hasOwnProperty('desayuno')" class="list-group">
                     <li *ngFor="let item of _dieta.desayuno ; let i = index" class="list-group-item d-flex">
-                        <textarea class="form-control w-100 border-0" [id]="'desayuno_'+i" cols="30" rows="3" (change)="guardarCambio($event)" >{{item}}</textarea>
-                        <button class="btn btn-close bg-danger p-2 rounded-circle" attr.data-keys="{{'desayuno_'+i}}" (click)="remove($event)"></button>
+                        <textarea [readonly]="!editando" class="form-control w-100 border-0" [id]="'desayuno_'+i"
+                            cols="30" rows="3" (change)="guardarCambio($event)">{{item}}</textarea>
+                        <button class="btn btn-close btn-sm bg-danger p-2 rounded-circle ms-2"
+                            attr.data-keys="{{'desayuno_'+i}}" (click)="remove($event)" *ngIf="editando"></button>
                     </li>
-                    <li class="list-group-item d-flex">
-                        <button class="btn rounded-circle border bg-primary text-white float-end" (click)="add('desayuno')">
+                    <li class="list-group-item d-flex" *ngIf="editando">
+                        <button class="btn ms-2 border bg-primary text-white float-end" (click)="add('desayuno')">
                             <span class="add">+</span>
                         </button>
                     </li>
                 </ul>
                 <ul *ngIf="currentItem.hasOwnProperty('desayuno')" class="list-group">
                     <li *ngFor="let item of currentItem.desayuno ; let i = index" class="list-group-item d-flex">
-                        <textarea class="form-control w-100 border-0" [id]="'desayuno_'+i" cols="30" rows="3" (change)="guardarCambio($event,1)" >{{item}}</textarea>
+                        <textarea [readonly]="!editando" class="form-control w-100 border-0" [id]="'desayuno_'+i"
+                            cols="30" rows="3" (change)="guardarCambio($event,1)">{{item}}</textarea>
                     </li>
                 </ul>
             </ng-template>
@@ -41,11 +48,13 @@
             <ng-template ngbPanelContent>
                 <ul class="list-group">
                     <li *ngFor="let item of _dieta.merienda ; let i = index" class="list-group-item d-flex">
-                        <textarea class="form-control w-100 border-0" [id]="'merienda_'+i" cols="30" rows="3" (change)="guardarCambio($event)" >{{item}}</textarea>
-                        <button class="btn btn-close bg-danger p-2 rounded-circle" attr.data-keys="{{'merienda_'+i}}" (click)="remove($event)"></button>
+                        <textarea [readonly]="!editando" class="form-control w-100 border-0" [id]="'merienda_'+i"
+                            cols="30" rows="3" (change)="guardarCambio($event)">{{item}}</textarea>
+                        <button class="btn btn-close btn-sm bg-danger p-2 rounded-circle ms-2"
+                            attr.data-keys="{{'merienda_'+i}}" (click)="remove($event)" *ngIf="editando"></button>
                     </li>
-                    <li class="list-group-item">
-                        <button class="btn rounded-circle border bg-primary text-white float-end" (click)="add('merienda')">
+                    <li class="list-group-item" *ngIf="editando">
+                        <button class="btn ms-2 border bg-primary text-white float-end" (click)="add('merienda')">
                             <span class="add">+</span>
                         </button>
                     </li>
@@ -56,11 +65,13 @@
             <ng-template ngbPanelContent>
                 <ul class="list-group">
                     <li *ngFor="let item of currentItem.comida ; let i = index" class="list-group-item d-flex">
-                        <textarea class="form-control w-100 border-0" [id]="'comida_'+i" cols="30" rows="3" (change)="guardarCambio($event,1)" >{{item}}</textarea>
-                        <button class="btn btn-close bg-danger p-2 rounded-circle" attr.data-keys="{{'comida_'+i}}" (click)="remove($event,1)"></button>
+                        <textarea [readonly]="!editando" class="form-control w-100 border-0" [id]="'comida_'+i"
+                            cols="30" rows="3" (change)="guardarCambio($event,1)">{{item}}</textarea>
+                        <button class="btn btn-close btn-sm bg-danger p-2 rounded-circle ms-2"
+                            attr.data-keys="{{'comida_'+i}}" (click)="remove($event,1)" *ngIf="editando"></button>
                     </li>
-                    <li class="list-group-item">
-                        <button class="btn rounded-circle border bg-primary text-white float-end" (click)="add('comida',1)">
+                    <li class="list-group-item" *ngIf="editando">
+                        <button class="btn ms-2 border bg-primary text-white float-end" (click)="add('comida',1)">
                             <span class="add">+</span>
                         </button>
                     </li>
@@ -71,11 +82,13 @@
             <ng-template ngbPanelContent>
                 <ul class="list-group">
                     <li *ngFor="let item of currentItem.cena ; let i = index" class="list-group-item d-flex">
-                        <textarea class="form-control w-100 border-0" [id]="'cena_'+i" cols="30" rows="3" (change)="guardarCambio($event,1)" >{{item}}</textarea>
-                        <button class="btn btn-close bg-danger p-2 rounded-circle" attr.data-keys="{{'cena_'+i}}" (click)="remove($event,1)"></button>
+                        <textarea [readonly]="!editando" class="form-control w-100 border-0" [id]="'cena_'+i" cols="30"
+                            rows="3" (change)="guardarCambio($event,1)">{{item}}</textarea>
+                        <button class="btn btn-close btn-sm bg-danger p-2 rounded-circle ms-2"
+                            attr.data-keys="{{'cena_'+i}}" (click)="remove($event,1)" *ngIf="editando"></button>
                     </li>
-                    <li class="list-group-item">
-                        <button class="btn rounded-circle border bg-primary text-white float-end" (click)="add('cena',1)">
+                    <li class="list-group-item" *ngIf="editando">
+                        <button class="btn ms-2 border bg-primary text-white float-end" (click)="add('cena',1)">
                             <span class="add">+</span>
                         </button>
                     </li>

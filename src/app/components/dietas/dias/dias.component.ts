@@ -10,13 +10,8 @@ export class DiasComponent implements OnInit {
   _dieta: any | {} = undefined;
   currentItem: any = null;
   _posicion: number;
-  _id: string;
-  @Input()
-  set dietaid(val: any) {
-    if (val) {
-      this._id = val;
-    }
-  }
+  @Input() editando:boolean = false;
+  @Input() id: string = "";
   @Input()
   set dieta(val: any) {
     if (val) {
@@ -34,7 +29,7 @@ export class DiasComponent implements OnInit {
   }
   constructor(public dietaService: DietasService) {
     this._posicion = 0;
-    this._id = "";
+    this.id = "";
   }
 
   ngOnInit(): void {
@@ -52,6 +47,7 @@ export class DiasComponent implements OnInit {
     }
   }
   remove($event: any, type: number = 0) {
+    if(!this.editando)return;
     var keys = $event.target.dataset.keys.split('_');
     switch (type) {
       case 1:
@@ -61,9 +57,10 @@ export class DiasComponent implements OnInit {
         this._dieta[keys[0]].splice(keys[1], 1);
         break;
     }
-    this.dietaService.addCollectionDoc(this._id, this._dieta);
+    this.dietaService.addCollectionDoc(this.id, this._dieta);
   }
   guardarCambio($event: any, type: number = 0) {
+    if(!this.editando)return;
     var keys = $event.target.id.split('_');
     switch (type) {
       case 1:
@@ -74,8 +71,6 @@ export class DiasComponent implements OnInit {
         break;
 
     }
-    this.dietaService.addCollectionDoc(this._id, this._dieta);
-  }
-  guardarCambio2($event: any) {
+    this.dietaService.addCollectionDoc(this.id, this._dieta);
   }
 }
