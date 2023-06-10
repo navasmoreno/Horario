@@ -1,15 +1,9 @@
 import { Injectable } from '@angular/core';
 import { initializeApp } from 'firebase/app';
 import { Firestore, Query, collection, doc, getDoc, getDocs, getFirestore, query, setDoc } from 'firebase/firestore/lite';
+import { firebaseConfig } from 'src/environments/environment.prod';
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAiZMOA8Xwah60YhRmmcsqz7u6Yv1eABuA",
-  authDomain: "navas-moreno.firebaseapp.com",
-  projectId: "navas-moreno",
-  storageBucket: "navas-moreno.appspot.com",
-  messagingSenderId: "280089537055",
-  appId: "1:280089537055:web:71cf187e885adeddf7032a"
-};
+
 
 @Injectable({
   providedIn: 'root'
