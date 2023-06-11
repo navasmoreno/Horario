@@ -1,1 +1,14 @@
-<p>asignaturas works!</p>
+<app-header [selected]="selected"></app-header>
+<main class="container-fluid py-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 col-sm-9 justify-content-center">
+            <div class="align-self-center">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <a class="navbar-brand" [routerLink]="'/'+asignatura+'/ejercicios'">Ejercicios</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-ejercicios',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ejercicios.component.scss']
 })
 export class EjerciciosComponent implements OnInit {
+  selected = "asignaturas";
+  asignatura: string="";
+  constructor(
+    private route: ActivatedRoute
+  ) { 
 
-  constructor() { }
+  }
 
   ngOnInit(): void {
+    this.asignatura = this.route.snapshot.paramMap.get('asignatura') || "";
+
   }
 
 }
