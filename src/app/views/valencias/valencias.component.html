@@ -53,6 +53,16 @@
                     <a ngbNavLink>Elementos</a>
                     <ng-template ngbNavContent>
                         <div class="container ">
+                            <div class="row justify-content-md-center mb-3">
+                                <div class="col-12 col-md-10 col-lg-8 d-flex">
+                                    <label for="table-filtering-search"
+                                        class="col-xs-3 col-sm-auto col-form-label">Buscar:</label>
+                                    <input id="table-filtering-search" class="form-control mx-lg-2 mx-md-3 mx-5" type="text"
+                                        (keydown.enter)="$event.preventDefault();onSearch();" />
+                                    <button class="btn btn-primary" (click)="onSearch()"><fa-icon
+                                            [icon]="iconos.buscar"></fa-icon></button>
+                                </div>
+                            </div>
                             <div class="row justify-content-md-center">
                                 <div class="col-12 col-md-10 col-lg-8">
                                     <table class="table table-bordered">
@@ -64,10 +74,10 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr *ngFor="let item of elementos">
+                                            <tr *ngFor="let item of elementosTabla">
                                                 <td>{{item.nombre}}</td>
                                                 <td>{{item.elemento}}</td>
-                                                <td>{{item.valencias.toString()}}</td>
+                                                <td>{{item.valencias.sort().toString()}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
