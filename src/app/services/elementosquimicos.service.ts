@@ -12,14 +12,14 @@ export class ElementosquimicosService extends ServicesBase {
     super(firebaseService,name);
   }
 
-  async getQuestions() {
+  async getQuestions(cuantas:number=0) {
 
     var questions: any = [];
     if (this.querySnapshot == null) {
         await this.getAllDocs();
     }
     if (this.querySnapshot != null) {
-        var cuantas = Math.floor(this.querySnapshot.size/10)*5;
+        if(cuantas==0)cuantas = Math.floor(this.querySnapshot.size/10)*5;
         var numeros: number[] = [];
         for (let index = 0; index < cuantas; index++) {
           var pos;

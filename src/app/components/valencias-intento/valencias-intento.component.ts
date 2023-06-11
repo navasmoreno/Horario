@@ -40,9 +40,12 @@ export class ValenciasIntentoComponent implements OnInit {
   }
 
   async resetPreguntas() {
-    this.preguntas = await this.service.getQuestions();
+    this.preguntas = await this.service.getQuestions(8);
     this.config.max = this.preguntas.length - 1;
     this.respuestas = [];
+    document.querySelectorAll("input[type=checkbox][name=valencias]").forEach(check => {
+      (check as HTMLInputElement).checked = false;
+    })
   }
   mover(arg0: number) {
     if (this.posicion + arg0 >= 0 && this.posicion + arg0 < this.preguntas.length) {
@@ -84,7 +87,7 @@ export class ValenciasIntentoComponent implements OnInit {
       if (!this.respuestas[i]) {
         this.resultados.fail++;
         this.resultados.respuestasfail.push([`${pregunta.nombre}(${pregunta.elemento})`,pregunta.valencias.toString(),""])
-      } else if (pregunta.valencias.toString() == this.respuestas[i].toString()) {
+      } else if (pregunta.valencias.sort().toString() == this.respuestas[i].sort().toString()) {
         this.resultados.ok++;
         this.resultados.respuestasok.push([`${pregunta.nombre}(${pregunta.elemento})`,pregunta.valencias.toString()])
       } else {
