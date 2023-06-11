@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ValenciasService } from 'src/app/services/valencias.service';
+import { ElementosquimicosService } from 'src/app/services/elementosquimicos.service';
 import { environment } from 'src/environments/environment.prod';
 
 @Component({
@@ -17,18 +17,18 @@ export class ValenciasComponent implements OnInit {
     superados: 0,
     fallados: 0
   };
-  valencias: any;
+  elementos: any;
 
 
-  constructor(public service:ValenciasService) {
+  constructor(public service: ElementosquimicosService) {
     this.data = this.getLocalStorage();
-    this.getValencias();
+    this.getElementosQuimicos();
   }
   
   ngOnInit(): void {
   }
-  async getValencias(){
-    this.valencias = await this.service.getItems();
+  async getElementosQuimicos(){
+    this.elementos = await this.service.getItems();
   }
   getLocalStorage() {
     var data = {

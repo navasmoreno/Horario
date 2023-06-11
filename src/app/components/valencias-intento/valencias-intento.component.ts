@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ValenciasService } from 'src/app/services/valencias.service';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { NgbProgressbarConfig } from '@ng-bootstrap/ng-bootstrap';
+import { ElementosquimicosService } from 'src/app/services/elementosquimicos.service';
 
 
 @Component({
@@ -19,7 +19,7 @@ export class ValenciasIntentoComponent implements OnInit {
   icons = { right: faChevronRight, left: faChevronLeft };
   resultados: any | null = null;
 
-  constructor(private service: ValenciasService, private config: NgbProgressbarConfig) {
+  constructor(private service: ElementosquimicosService, private config: NgbProgressbarConfig) {
 
     config.height = '30px';
     config.animated = true;

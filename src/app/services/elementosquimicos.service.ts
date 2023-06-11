@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { ServicesBase } from './services-base';
 import { FirebaseService } from './firebase.service';
-const name = "valencias";
+const name = "elementosquimicos";
 
 @Injectable({
   providedIn: 'root'
 })
-export class ValenciasService extends ServicesBase {
+export class ElementosquimicosService extends ServicesBase {
   constructor(public override firebaseService: FirebaseService) 
   {
     super(firebaseService,name);
@@ -30,7 +30,6 @@ export class ValenciasService extends ServicesBase {
           numeros.push(pos);
           questions.push(item.data());
         }
-        console.log(questions);
 
     }
     return questions;
