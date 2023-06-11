@@ -17,6 +17,11 @@ import { DiasComponent } from './components/dietas/dias/dias.component';
 import { DietasService } from './services/dietas.service';
 import { HorariosService } from './services/horarios.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { QuimicaComponent } from './views/quimica/quimica.component';
+import { AsignaturasComponent } from './views/asignaturas/asignaturas.component';
+import { EjerciciosComponent } from './views/ejercicios/ejercicios.component';
+import { ValenciasComponent } from './views/valencias/valencias.component';
+import { ValenciasIntentoComponent } from './components/valencias-intento/valencias-intento.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +34,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     DietaComponent,
     DietasComponent,
     SemanasComponent,
-    DiasComponent
+    DiasComponent,
+    QuimicaComponent,
+    AsignaturasComponent,
+    EjerciciosComponent,
+    ValenciasComponent,
+    ValenciasIntentoComponent
   ],
   imports: [
     BrowserModule,

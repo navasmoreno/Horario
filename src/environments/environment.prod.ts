@@ -1,6 +1,7 @@
 export const environment = {
   production: true,
   dietaPaginacionlocalstorage: "b12fdbfe6592d48f97e62508d987f74f8e1ea1f2",
+  valenciaslocalstorage : "b12fdbfe6592d48f97e62508d987f74f8e1ea1f2askliwe"
 };
 export const firebaseConfig = {
   apiKey: "AIzaSyAiZMOA8Xwah60YhRmmcsqz7u6Yv1eABuA",

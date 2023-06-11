@@ -2,3 +2,12 @@
     text-transform: uppercase;
     font-weight: bolder;
 }
+.dropdown-menu {
+    .dropdown-item{
+        color: var(--bs-white);
+        &:hover {
+            color: var(--bs-black);
+        }
+
+    }
+}

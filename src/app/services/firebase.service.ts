@@ -44,6 +44,6 @@ export class FirebaseService {
     return querySnapshot;
   }
   addCollectionDoc = async (name: string, id: string, data: any) => {
-    await setDoc(doc(this.db, name, id), data);
+    await setDoc(doc(this.db, name, id.trim()), data);
   }
 }

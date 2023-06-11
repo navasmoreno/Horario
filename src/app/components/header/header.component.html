@@ -1,24 +1,31 @@
-<header class="container-fluid bg-light sticky-top">
-    <div class="align-items-center col-auto col-md col-sm-8 d-flex p-0">
-        <nav class="navbar navbar-expand navbar-light ">
-            <div class="navbar-brand" ngbDropdown role="group" aria-label="Button group with nested dropdown">
-                <button type="button" class="btn dropdown-toggle nav-link" [class.selected]=" selected == 'horarios'" ngbDropdownToggle>Horarios</button>
-                <div class="dropdown-menu" ngbDropdownMenu>
-                    <a *ngFor="let item of horarios" ngbDropdownItem [routerLink]="'/horarios/'+item.link"
-                        [class.itemSelected]="itemSelected === item.link">
-                        {{item.nombre}}
-                    </a>
-                </div>
+<header class="container-fluid bg-light sticky-top text-white">
+    <div class="align-items-center col justify">
+        <div ngbDropdown class="d-inline-block ">
+            <button type="button" class="btn text-bg-primary rounded-0" id="dropdownHorarios" ngbDropdownToggle>
+                Horarios
+            </button>
+            <div class="text-bg-primary" ngbDropdownMenu aria-labelledby="dropdownHorarios">
+                <button *ngFor="let item of horarios" ngbDropdownItem [routerLink]="'/horarios/'+item.link"
+                    [class.itemSelected]="itemSelected === item.link">{{item.nombre}}</button>
             </div>
-            <div class="navbar-brand" ngbDropdown role="group" aria-label="Button group with nested dropdown">
-                <button type="button" class="btn dropdown-toggle nav-link" [class.selected]=" selected == 'dietas'" ngbDropdownToggle>Dietas</button>
-                <div class="dropdown-menu" ngbDropdownMenu>
-                    <a *ngFor="let item of dietas" ngbDropdownItem [routerLink]="'/dietas/'+item.link"
-                        [class.itemSelected]="itemSelected === item.link">
-                        {{item.nombre}}
-                    </a>
-                </div>
+        </div>
+        <div ngbDropdown class="d-inline-block ">
+            <button type="button" class="btn text-bg-primary rounded-0" id="dropdownDietas" ngbDropdownToggle>
+                Dietas
+            </button>
+            <div class="text-bg-primary" ngbDropdownMenu aria-labelledby="dropdownDietas">
+                <button *ngFor="let item of dietas" ngbDropdownItem [routerLink]="'/dietas/'+item.link"
+                    [class.itemSelected]="itemSelected === item.link">{{item.nombre}}</button>
             </div>
-        </nav>
+        </div>
+        <div ngbDropdown class="d-inline-block ">
+            <button type="button" class="btn text-bg-primary rounded-0" id="dropdownAsignaturas" ngbDropdownToggle>
+                Quimica
+            </button>
+            <div class="text-bg-primary" ngbDropdownMenu aria-labelledby="dropdownAsignaturas">
+                <button ngbDropdownItem routerLink="/asignaturas/quimica/ejercicios/valencias"
+                    [class.itemSelected]="itemSelected === 'quimica_ejerciocios'">Ejercicios de valencias</button>
+            </div>
+        </div>
     </div>
 </header>

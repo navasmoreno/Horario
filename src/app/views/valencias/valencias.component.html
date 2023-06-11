@@ -1,0 +1,71 @@
+<app-header [selected]="selected"></app-header>
+<main class="container-fluid">
+    <div class="row h-100">
+        <div class="col">
+            <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+                <li [ngbNavItem]="1" [disabled]="this.intentando==true">
+                    <a ngbNavLink>Resumen</a>
+                    <ng-template ngbNavContent>
+                        <div class="w-50 m-auto container">
+                            <div class="row mb-2">
+                                <label class="form-label col-6" for="intentos">Intentos</label>
+                                <input type="text" disabled id="intentos"
+                                    class="col-sm form-control text-center text-bold text-white text-bg-primary-light"
+                                    [value]="data.intentos">
+                            </div>
+                            <div class="row mb-2">
+                                <label class="form-label col-6" for="superados">Superados</label>
+                                <input type="text" disabled id="superados"
+                                    class="col-sm form-control text-center text-bold text-white text-bg-cobrado"
+                                    [value]="data.superados">
+                            </div>
+                            <div class="row mb-2">
+                                <label class="form-label col-6" for="fallados">Fallados</label>
+                                <input type="text" disabled id="fallados"
+                                    class="col-sm form-control text-center text-bold text-white text-bg-danger-light"
+                                    [value]="data.fallados">
+                            </div>
+                        </div>
+                    </ng-template>
+                </li>
+                <li [ngbNavItem]="2">
+                    <a ngbNavLink>Intentar</a>
+                    <ng-template ngbNavContent>
+                        <valencias-intento (isIntentando)="isIntentando($event)"
+                            (intentoAcabado)="guardarIntento($event)"></valencias-intento>
+                    </ng-template>
+                </li>
+                <li [ngbNavItem]="3" [disabled]="this.intentando==true">
+                    <a ngbNavLink>Elementos</a>
+                    <ng-template ngbNavContent>
+                        <div class="container ">
+                            <div class="row justify-content-md-center">
+                                <div class="col-8 p-0">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Elemento</th>
+                                                <th scope="col">Simbolo</th>
+                                                <th scope="col">Valencias</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let item of valencias">
+                                                <td>{{item.nombre}}</td>
+                                                <td>{{item.elemento}}</td>
+                                                <td>{{item.valencias.toString()}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </li>
+            </ul>
+
+            <div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+        </div>
+    </div>
+</main>

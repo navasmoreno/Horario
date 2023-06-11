@@ -10,14 +10,14 @@ export class ServicesBase {
         this.name = name;
         this.getAllDocs();
     }
-    getAllDocs = async () => {
+    async getAllDocs() {
         if (this.querySnapshot == null) {
-            console.log(`Buscando los items de ${this.name}`);
+            // console.log(`Buscando los items de ${this.name}`);
             this.querySnapshot = await this.firebaseService.getAllDocs(this.name);
         }
     }
 
-    getHeaderItems = async () => {
+    async getHeaderItems() {
         var items: any = [];
         if (this.querySnapshot == null) {
             await this.getAllDocs();
@@ -32,11 +32,24 @@ export class ServicesBase {
         }
         return items;
     }
+    async getItems() {
+        var items: any = [];
+        if (this.querySnapshot == null) {
+            await this.getAllDocs();
+        }
+        if (this.querySnapshot != null) {
+            this.querySnapshot.forEach((doc) => {
+                items.push(doc.data());
+            });
+        }
+        return items;
+
+    }
     getCollection() {
         return this.firebaseService.getCollection(this.name);
     }
 
-    getDoc = async (id: string) => {
+    async getDoc(id: string) {
         if (this.querySnapshot == null) {
             await this.getAllDocs();
         }
@@ -46,7 +59,7 @@ export class ServicesBase {
         }
         return this.firebaseService.getDoc(this.name, id);
     }
-    addCollectionDoc = async (id: string, data: any) => {
-        this.firebaseService.addCollectionDoc(this.name, id, data);
+    async addCollectionDoc(id: string, data: any) {
+        this.firebaseService.addCollectionDoc(this.name, id.trim(), data);
     }
 }
