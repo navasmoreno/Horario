@@ -1,6 +1,6 @@
 <main class="container-fluid px-0">
     <div class="table-responsive">
-        <table *ngIf="horario && horario.length>0" class="table table-bordered table-striped text-uppercase">
+        <table *ngIf="horario && horario.length>0" class="table text-uppercase">
             <tr>
                 <th scope="col" class="py-2 text-center text-bg-primary ">#</th>
                 <th scope="col" class="py-2 text-center text-bg-primary">LUNES</th>
@@ -14,21 +14,21 @@
                     DOMINGO</th>
             </tr>
             <tr *ngFor="let row of horario" class="">
-                <td class="py-3 text-center text-bg-primary">
+                <th scope="row" class="py-3 text-center text-bg-primary">
                     {{row.time.substring(0,2)+":"+row.time.substring(2,4)}}
-                </td>
-                <td *ngFor="let value of row.values" class="px-2 datos" [ngClass]="{'bg-grey text-white-50':value=='recreo',
-            'color-1':value.toLowerCase()=='geografía' || value.toLowerCase()=='economía',
-            'color-2':value.toLowerCase()=='tics' || value.toLowerCase()=='inglés',
-            'color-3':value.toLowerCase()=='biología' || value.toLowerCase()=='matemáticas',
-            'color-4':value.toLowerCase()=='lengua' || value.toLowerCase()=='frances',
-            'color-5':value.toLowerCase()=='educación física' || value.toLowerCase()=='psicología',
-            'color-6':value.toLowerCase()=='matemáticas' || value.toLowerCase()=='história del arte',
-            'color-7':value.toLowerCase()=='filosofía' || value.toLowerCase()=='lengua',
-            'color-8':value.toLowerCase()=='valores' || value.toLowerCase()=='história del españa',
-            'color-9':value.toLowerCase()=='frances',
-            'color-10':value.toLowerCase()=='inglés',
-            'color-11':value.toLowerCase()=='física y química'}">
+                </th>
+                <td *ngFor="let value of row.values" class="px-2 datos border-start" [ngClass]="{'bg-grey text-white-50':value=='recreo',
+            'color-1':value.toLowerCase()=='dibujo técnico' || value.toUpperCase()=='DEI',
+            'color-2':value.toLowerCase()=='inglés' || value.toUpperCase()=='APS',
+            'color-3':value.toLowerCase()=='francés' || value.toUpperCase()=='ECO',
+            'color-4':value.toLowerCase()=='',
+            'color-5':value.toLowerCase()=='lengua' || value.toUpperCase()=='PAX',
+            'color-6':value.toLowerCase()=='matemáticas' || value.toUpperCase()=='ING',
+            'color-7':value.toLowerCase()=='filosofía' || value.toUpperCase()=='FOL',
+            'color-8':value.toLowerCase()=='física y química' || value.toUpperCase()=='DCM',
+            'color-9':value.toLowerCase()=='educación física',
+            'color-10':value.toLowerCase()=='',
+            'color-11':value.toLowerCase()==''}">
                     {{value}}
                 </td>
             </tr>
