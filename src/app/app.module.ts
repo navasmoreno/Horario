@@ -21,6 +21,7 @@ import { AsignaturasComponent } from './views/asignaturas/asignaturas.component'
 import { EjerciciosComponent } from './views/ejercicios/ejercicios.component';
 import { ValenciasComponent } from './views/valencias/valencias.component';
 import { ValenciasIntentoComponent } from './components/valencias-intento/valencias-intento.component';
+import { CuentaatrasComponent } from './views/cuentaatras/cuentaatras.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ValenciasIntentoComponent } from './components/valencias-intento/valenc
     AsignaturasComponent,
     EjerciciosComponent,
     ValenciasComponent,
-    ValenciasIntentoComponent
+    ValenciasIntentoComponent,
+    CuentaatrasComponent
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,7 @@ import { DietasComponent } from './views/dietas/dietas.component';
 import { ValenciasComponent } from './views/valencias/valencias.component';
 import { EjerciciosComponent } from './views/ejercicios/ejercicios.component';
 import { AsignaturasComponent } from './views/asignaturas/asignaturas.component';
+import { CuentaatrasComponent } from './views/cuentaatras/cuentaatras.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: "asignaturas/:asignatura", component: AsignaturasComponent, title:"Asignatura" },
   { path: ":asignatura/ejercicios", component: EjerciciosComponent, title:"Ejercicios" },
   { path: "quimica/ejercicios/valencias", component: ValenciasComponent, title:"Química" },
+  { path: "roadtoalmerimar", component: CuentaatrasComponent, title:"Road to Almerimar" },
   { path: "**", component: PageNotFoundComponent },
 ];
 
