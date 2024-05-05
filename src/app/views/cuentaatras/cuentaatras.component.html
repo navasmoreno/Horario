@@ -8,11 +8,29 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div *ngIf="message1.length>0" class="row">
         <div class="col col-span-1">
             <div class="align-self-center">
-                <p class="m-auto h1 p-1 mt-5 indie-flower regular text-white-50 text-uppercase time bg-white bg-opacity-25">
-                    {{message}}
+                <p class="bg-black bg-opacity-50 h1 indie-flower m-auto mt-5 p-2 regular text-uppercase text-white-50 time">
+                    {{message1}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="message2.length>0" class="row">
+        <div class="col col-span-1">
+            <div class="align-self-center">
+                <p class="bg-black bg-opacity-50 h1 indie-flower m-auto mt-5 p-2 regular text-uppercase text-white-50 time">
+                    {{message2}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="message3.length>0" class="row">
+        <div class="col col-span-1">
+            <div class="align-self-center">
+                <p class="bg-black bg-opacity-50 h1 indie-flower m-auto mt-5 p-2 regular text-uppercase text-white-50 time">
+                    {{message3}}
                 </p>
             </div>
         </div>

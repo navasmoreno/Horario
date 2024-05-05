@@ -8,17 +8,23 @@ import * as moment from 'moment';
   styleUrls: ['./cuentaatras.component.scss']
 })
 export class CuentaatrasComponent implements OnInit {
-  message = "";
+  message1 = "";
+  message2 = "";
+  message3 = "";
   time = moment();
-  arrive = moment("2024-05-29");
-  exit = moment("2024-06-06");
+  arrive = moment("2024-05-29 11:00:00");
+  exit = moment("2024-06-06 11:00:00");
   constructor() { }
 
   ngOnInit(): void {
     if (this.time > this.arrive && this.time < this.exit) {
-      this.message = "Disfrutando..."
+      this.message1 = "Disfrutando..."
+      this.message2 = ""
+      this.message3 = ""
     } else if (this.time > this.exit) {
-      this.message = "Hasta el año que viene"
+      this.message1 = "Hasta el año que viene"
+      this.message2 = ""
+      this.message3 = ""
     } else {
       this.time = this.getDateFormat();
       this.setText();
@@ -35,7 +41,9 @@ export class CuentaatrasComponent implements OnInit {
     return moment(diff);
   }
   setText() {
-    this.message = this.time.format('DD/MM HH:mm:ss');
+    this.message1 = this.time.format('MM ')+(this.time.format('MM')>"1"?"MESES":"MES");
+    this.message2 = this.time.format('DD ')+(this.time.format('DD')>"1"?"DIAS":"DIA");
+    this.message3 = this.time.format('HH:mm:ss');
 
   }
 }
