@@ -1,0 +1,38 @@
+.time {
+    font-size: 4rem;
+    width: fit-content;
+    @media (min-width: 576px) {
+        font-size: 5rem;
+    }
+
+    /*Medium devices (tablets, 768px and up)*/
+    @media (min-width: 768px) {
+        font-size: 6rem;
+    }
+
+    /*Large devices (desktops, 992px and up)*/
+    @media (min-width: 992px) {
+        font-size: 8rem;
+    }
+
+    /*Extra large devices (large desktops, 1200px and up)*/
+    @media (min-width: 1200px) {
+        font-size: 10rem;
+    }
+
+}
+
+.imagen {
+    z-index: -1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+main {
+    background-image: url("https://cf.bstatic.com/xdata/images/hotel/max1024x768/42083889.jpg?k=3ec7a670c47e42b97363e41027abee0ddc63b22f854c7ea9d3af8dd1e3874e1d&o=&hp=1");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
