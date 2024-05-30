@@ -8,46 +8,42 @@ import * as moment from 'moment';
   styleUrls: ['./cuentaatras.component.scss']
 })
 export class CuentaatrasComponent implements OnInit {
-  message1 = '';
-  message2 = '';
-  message3 = '';
-  counter = [0, 0, 0, 0, 0, 0];
-  now = moment();
-  arrive = moment('2024-06-29 11:00:00');
-  exit = moment('2024-07-06 11:00:00');
-  duration: moment.Duration = moment.duration(this.arrive.diff(this.now));
-  interval: NodeJS.Timer | undefined;
+  message1 = "";
+  message2 = "";
+  message3 = "";
+  time = moment();
+  arrive = moment("2024-05-29 11:00:00");
+  exit = moment("2024-06-06 11:00:00");
   constructor() { }
 
   ngOnInit(): void {
-    this.setText();
-    this.interval = setInterval(() => {
-      this.now.add(1, 'second');
-      this.duration.subtract(1,'second');
-      this.run();
-    }, 1000)
-  }
-  run() {
-    if (this.now > this.arrive && this.now < this.exit) {
-      this.message1 = 'Disfrutando...'
-      this.message2 = ''
-      this.message3 = ''
-      clearInterval(this.interval);
-    } else if (this.now > this.exit) {
-      this.message1 = 'Hasta el año que viene'
-      this.message2 = ''
-      this.message3 = ''
-      clearInterval(this.interval);
+    if (this.time > this.arrive && this.time < this.exit) {
+      this.message1 = "Disfrutando..."
+      this.message2 = ""
+      this.message3 = ""
+    } else if (this.time > this.exit) {
+      this.message1 = "Hasta el año que viene"
+      this.message2 = ""
+      this.message3 = ""
     } else {
+      this.time = this.getDateFormat();
       this.setText();
+      setInterval(() => {
+        this.time.subtract(1, "second");
+        this.setText();
+      }, 1000)
     }
   }
+
+  getDateFormat() {
+    var diff = this.arrive.diff(this.time)
+    console.log(diff);
+    return moment(diff);
+  }
   setText() {
-    this.message1 = this.duration.months()>0 ? `${this.duration.months()} ${(this.duration.months() != 1 ? 'MESES' : 'MES')}` : '';
-    this.message2 = this.duration.days() > 0 ? `${this.duration.days()} ${(this.duration.days() != 1 ? 'DIAS' : 'DIA')}` : '';
-    this.message3 = `${(this.duration.hours()<=9 ? '0' : '')}${this.duration.hours()}`;
-    this.message3 += `:${(this.duration.minutes()<=9 ? '0' : '')}${this.duration.minutes()}`;
-    this.message3 += `:${(this.duration.seconds()<=9 ? '0' : '')}${this.duration.seconds()}`;
+    this.message1 = this.time.format('MM ')+(this.time.format('MM')>"1"?"MESES":"MES");
+    this.message2 = this.time.format('DD ')+(this.time.format('DD')>"1"?"DIAS":"DIA");
+    this.message3 = this.time.format('HH:mm:ss');
 
   }
 }
