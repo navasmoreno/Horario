@@ -11,7 +11,6 @@ export class CuentaatrasComponent implements OnInit {
   message1 = '';
   message2 = '';
   message3 = '';
-  counter = [0, 0, 0, 0, 0, 0];
   now = moment();
   arrive = moment('2024-06-29 11:00:00');
   exit = moment('2024-07-06 11:00:00');
