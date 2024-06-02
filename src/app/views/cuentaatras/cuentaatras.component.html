@@ -1,41 +1,83 @@
-<main class="container-fluid py-0 vh-100">
-    <div class="row ">
-        <div class="justify-content-center">
-            <div class="align-self-center">
-                <p class="text-center h1 pt-3 pt-lg-5 indie-flower regular text-primary text-uppercase ">
-                    nos vamos a almerimar
+<main class="vh-100 cursor-default text-white text-uppercase indie-flower regular">
+    <div *ngIf="haypermisos==false" class="container bg-black bg-opacity-50 vh-100 pt-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-xl-auto">
+                <p class="text-center h1 ">
+                    Esto no son cookies, pero se parecen...
+                </p>
+                <p class="text-center h1 ">
+                    Te tengo que preguntar, me dejas ponerte musica?
                 </p>
             </div>
         </div>
-    </div>
-    <div *ngIf="message1.length>0" class="row">
-        <div class="col col-span-1">
-            <div class="align-self-center">
-                <p class="bg-black bg-opacity-50 h1 indie-flower m-auto mt-5 p-2 regular text-uppercase text-white-50 time">
-                    {{message1}}
-                </p>
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <div class="">
+                    <button type="button" class="btn btn-success btn-md me-2" style="width:200px"
+                        (click)="permisos(1);">SI</button>
+                    <button type="button" class="btn btn-danger btn-md ms-2" style="width:200px"
+                        (click)="permisos(0)">NO</button>
+                </div>
             </div>
         </div>
     </div>
-    <div *ngIf="message2.length>0" class="row">
-        <div class="col col-span-1">
-            <div class="align-self-center">
-                <p class="bg-black bg-opacity-50 h1 indie-flower m-auto mt-5 p-2 regular text-uppercase text-white-50 time">
-                    {{message2}}
-                </p>
+    <div *ngIf="haypermisos" class="container bg-black bg-opacity-50 vh-100 pt-5">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="align-self-center">
+                    <p class="text-center h1 pt-3 pt-lg-5 text-cobrado ">
+                        nos vamos a almerimar
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="message1.length>0" class="row justify-content-center">
+            <div class="col-12">
+                <div class="align-self-center">
+                    <p class="h1 m-auto mt-5 p-2 regular time">
+                        {{message1}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="message2.length>0" class="row justify-content-center">
+            <div class="col-12">
+                <div class="align-self-center">
+                    <p class="h1 m-auto mt-5 p-2 regular time">
+                        {{message2}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="message3.length>0" class="row justify-content-center">
+            <div class="col-12">
+                <div class="align-self-center">
+                    <p class="h1 m-auto mt-5 p-2 regular time">
+                        {{message3}}
+                    </p>
+                </div>
             </div>
         </div>
     </div>
-    <div *ngIf="message3.length>0" class="row">
-        <div class="col col-span-1">
-            <div class="align-self-center">
-                <p class="bg-black bg-opacity-50 h1 indie-flower m-auto mt-5 p-2 regular text-uppercase text-white-50 time">
-                    {{message3}}
+    <div *ngIf="haypermisos" class="fixed-bottom container">
+        <div class="col-12 justify-content-center align-items-end">
+            <div *ngIf="showplay==false" class="w-auto mb-4">
+                <p class="text-center h1 h2-md pt-3 pt-lg-5 ">
+                    Has cambiado de opinión con la música??
+                </p>
+                <div class="text-center">
+                    <button type="button" class="btn btn-light" 
+                        (click)="permisos(-1);">Cambiar preferencias</button>
+                </div>
+            </div>
+            <div *ngIf="showplay" class="w-auto mb-4">
+                <p class="text-center h1 h2-md pt-3 pt-lg-5 ">
+                    Dale al play
+                    <button type="button" class="btn btn-light mb-3" 
+                        (click)="playMusic();"><fa-icon [icon]="iconos.play"></fa-icon></button>
                 </p>
             </div>
+
         </div>
     </div>
 </main>
-<!-- <div class="imagen">
-    <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/42083889.jpg?k=3ec7a670c47e42b97363e41027abee0ddc63b22f854c7ea9d3af8dd1e3874e1d&o=&hp=1" alt="" class="img-fluid max-width">
-</div> -->
