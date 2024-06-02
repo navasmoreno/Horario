@@ -1,23 +1,23 @@
 .time {
-    font-size: 4rem;
+    font-size: 8rem;
     width: fit-content;
     @media (min-width: 576px) {
-        font-size: 5rem;
+        font-size: 9rem;
     }
 
     /*Medium devices (tablets, 768px and up)*/
     @media (min-width: 768px) {
-        font-size: 6rem;
+        font-size: 10rem;
     }
 
     /*Large devices (desktops, 992px and up)*/
     @media (min-width: 992px) {
-        font-size: 8rem;
+        font-size: 11rem;
     }
 
     /*Extra large devices (large desktops, 1200px and up)*/
     @media (min-width: 1200px) {
-        font-size: 10rem;
+        font-size: 12rem;
     }
 
 }
