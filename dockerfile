@@ -1,5 +1,5 @@
 #Descarga la imagen node para instalar angular
-FROM node:lts-alpine3.16
+FROM node:lts-alpine3.20
 
 WORKDIR /usr/src/app
 
